@@ -1,0 +1,123 @@
+
+/* Class = "UITextField"; placeholder = "State type of question"; ObjectID = "0Lh-iP-jxc"; */
+"0Lh-iP-jxc.placeholder" = "State type of question";
+
+/* Class = "UITextField"; placeholder = "Enter Title"; ObjectID = "1pK-f6-vBR"; */
+"1pK-f6-vBR.placeholder" = "Enter Title";
+
+/* Class = "UIButton"; normalTitle = "Manage Database"; ObjectID = "1r0-fo-yR5"; */
+"1r0-fo-yR5.normalTitle" = "Manage Database";
+
+/* Class = "UITableViewController"; title = "Algebra"; ObjectID = "3qk-vk-Kvz"; */
+"3qk-vk-Kvz.title" = "Algebra";
+
+/* Class = "UILabel"; text = "REVISION"; ObjectID = "4FQ-m9-8r9"; */
+"4FQ-m9-8r9.text" = "REVISION";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "5rJ-ik-QI5"; */
+"5rJ-ik-QI5.title" = "Title";
+
+/* Class = "UILabel"; text = "question text"; ObjectID = "7c7-pk-hFV"; */
+"7c7-pk-hFV.text" = "question text";
+
+/* Class = "UIButton"; normalTitle = "Check"; ObjectID = "Bub-vJ-vQB"; */
+"Bub-vJ-vQB.normalTitle" = "Check";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "CxS-ba-xQ0"; */
+"CxS-ba-xQ0.text" = "Title";
+
+/* Class = "UITextField"; placeholder = "Enter Code"; ObjectID = "EIn-Go-aJc"; */
+"EIn-Go-aJc.placeholder" = "Enter Code";
+
+/* Class = "UILabel"; text = "UNIT 2"; ObjectID = "J5V-YI-VKb"; */
+"J5V-YI-VKb.text" = "UNIT 2";
+
+/* Class = "UIViewController"; title = "Questions Added"; ObjectID = "JF1-SH-8kf"; */
+"JF1-SH-8kf.title" = "Questions Added";
+
+/* Class = "UIViewController"; title = "Trig Functions"; ObjectID = "JGu-Vh-IFU"; */
+"JGu-Vh-IFU.title" = "Trig Functions";
+
+/* Class = "UILabel"; text = "Swipe to Delete a Question"; ObjectID = "JbB-pG-TSj"; */
+"JbB-pG-TSj.text" = "Swipe to Delete a Question";
+
+/* Class = "UIViewController"; title = "Entered Questions"; ObjectID = "K3B-Q3-j2y"; */
+"K3B-Q3-j2y.title" = "Entered Questions";
+
+/* Class = "UITextField"; placeholder = "Enter Question Text"; ObjectID = "K6A-1w-zc0"; */
+"K6A-1w-zc0.placeholder" = "Enter Question Text";
+
+/* Class = "UIButton"; normalTitle = "ADD"; ObjectID = "KJM-D0-W1I"; */
+"KJM-D0-W1I.normalTitle" = "ADD";
+
+/* Class = "UIViewController"; title = "Add Questions"; ObjectID = "Nif-tK-PnE"; */
+"Nif-tK-PnE.title" = "Add Questions";
+
+/* Class = "UIViewController"; title = "Vectors"; ObjectID = "QZY-Fm-3f6"; */
+"QZY-Fm-3f6.title" = "Vectors";
+
+/* Class = "UICollectionViewController"; title = "Unit 2"; ObjectID = "RxO-a4-nNf"; */
+"RxO-a4-nNf.title" = "Unit 2";
+
+/* Class = "UILabel"; text = "UNIT 1 "; ObjectID = "UXG-ZF-24Z"; */
+"UXG-ZF-24Z.text" = "UNIT 1 ";
+
+/* Class = "UITextField"; placeholder = "Enter Tags - seperate with comma"; ObjectID = "W4c-aZ-15d"; */
+"W4c-aZ-15d.placeholder" = "Enter Tags - seperate with comma";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "WA3-SP-0X9"; */
+"WA3-SP-0X9.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Delete Question"; ObjectID = "XS6-B3-kgS"; */
+"XS6-B3-kgS.normalTitle" = "Delete Question";
+
+/* Class = "UIButton"; normalTitle = "Check"; ObjectID = "aPB-Oo-9Ll"; */
+"aPB-Oo-9Ll.normalTitle" = "Check";
+
+/* Class = "UIButton"; normalTitle = "Delete All"; ObjectID = "bGn-eK-44f"; */
+"bGn-eK-44f.normalTitle" = "Delete All";
+
+/* Class = "UIViewController"; title = "Functions"; ObjectID = "bRR-2H-qWA"; */
+"bRR-2H-qWA.title" = "Functions";
+
+/* Class = "UILabel"; text = "question text"; ObjectID = "bzc-Gz-3BG"; */
+"bzc-Gz-3BG.text" = "question text";
+
+/* Class = "UITextField"; placeholder = "enter you answer here"; ObjectID = "dDE-DX-8dg"; */
+"dDE-DX-8dg.placeholder" = "enter you answer here";
+
+/* Class = "UITableViewController"; title = "Unit 1"; ObjectID = "dYb-E6-RcQ"; */
+"dYb-E6-RcQ.title" = "Unit 1";
+
+/* Class = "UITextField"; placeholder = "Enter correct Answer"; ObjectID = "f8z-0E-3vX"; */
+"f8z-0E-3vX.placeholder" = "Enter correct Answer";
+
+/* Class = "UILabel"; text = "Add Qusetions"; ObjectID = "jLk-Je-odl"; */
+"jLk-Je-odl.text" = "Add Qusetions";
+
+/* Class = "UIButton"; normalTitle = "Feedback"; ObjectID = "jxv-Q8-VJb"; */
+"jxv-Q8-VJb.normalTitle" = "Feedback";
+
+/* Class = "UILabel"; text = "topic"; ObjectID = "kp5-qD-T6R"; */
+"kp5-qD-T6R.text" = "topic";
+
+/* Class = "UITextField"; placeholder = "Enter HInt"; ObjectID = "lCy-Re-TXk"; */
+"lCy-Re-TXk.placeholder" = "Enter HInt";
+
+/* Class = "UITableViewController"; title = "Higher Maths "; ObjectID = "ods-5D-wX0"; */
+"ods-5D-wX0.title" = "Higher Maths ";
+
+/* Class = "UITextField"; placeholder = "Enter Feedback"; ObjectID = "sYr-JT-Rty"; */
+"sYr-JT-Rty.placeholder" = "Enter Feedback";
+
+/* Class = "UIBarButtonItem"; title = "Next"; ObjectID = "sve-LF-1rX"; */
+"sve-LF-1rX.title" = "Next";
+
+/* Class = "UILabel"; text = "UNIT 3"; ObjectID = "x9R-az-Bc4"; */
+"x9R-az-Bc4.text" = "UNIT 3";
+
+/* Class = "UITableViewSection"; headerTitle = "HIGHER UNITS"; ObjectID = "xUk-Ba-9W1"; */
+"xUk-Ba-9W1.headerTitle" = "HIGHER UNITS";
+
+/* Class = "UIViewController"; title = "MC Questions"; ObjectID = "xVN-NR-lpV"; */
+"xVN-NR-lpV.title" = "MC Questions";

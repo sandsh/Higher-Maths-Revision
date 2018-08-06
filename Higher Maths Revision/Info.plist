@@ -2,8 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.education</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow sharing of images</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Allow sharing of images</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Allow use for images</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow photos to be used as images</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<string>en_GB</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
