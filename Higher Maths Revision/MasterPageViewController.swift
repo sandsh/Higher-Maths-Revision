@@ -38,7 +38,6 @@ class MasterPageViewController: UIViewController, UIPageViewControllerDelegate, 
         super.viewDidLoad()
         self.navigationItem.title = titleName
 
-        print("in master ")
         //find only the questions on the topic selected - as we pass in all area questions
         //test questions will have already been organised 
         if testType == "Test" || testType == "Revision" {
@@ -67,19 +66,6 @@ class MasterPageViewController: UIViewController, UIPageViewControllerDelegate, 
         let initialContentVC = self.questionPageAtIndex(index: 0)
         childViews =  [initialContentVC]
         self.pageViewController.setViewControllers(childViews as [UIViewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
-    
-        
-        print(" before blank")
-//    ??
-//        self.resultsHandler = { name in
-//            print("passed back \(name)")
-//            return 99
-//
-//        }
-//
-        //set up blank array for questions - only once so in here before the move below
-//        questionResults = setUpBlankArray(numQuestions: randomOrderQuestions.count)
-//        print("number of quests   \(randomOrderQuestions.count)")
         
         //set up parent child relationship
         self.addChildViewController(self.pageViewController)
@@ -192,12 +178,6 @@ class MasterPageViewController: UIViewController, UIPageViewControllerDelegate, 
         view.addSubview(pageControl)
         view.bringSubview(toFront: pageControl)                 //need to make sure dots appeared on top of view
     }
-// didn't need this at all!! only needed delegate hooked up!!  ??
-//    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-
-//        pendingIndex = childViews.index(of: pendingViewContropllers.first!)
-//        print("pending index \(pendingIndex)")
-//    }
 //
     // makes the dots colour transition with each question
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {

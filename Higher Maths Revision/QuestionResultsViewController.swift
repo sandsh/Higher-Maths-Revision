@@ -10,9 +10,7 @@ import UIKit
 
 class QuestionResultsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    
     //passed in data
-    
     var questsResults: [Results] = []
     
     @IBOutlet weak var testTitle: UILabel!
@@ -26,7 +24,7 @@ class QuestionResultsViewController: UIViewController, UICollectionViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("starting finish")
+
         
         //calculate some numbers and update
         displayResults()

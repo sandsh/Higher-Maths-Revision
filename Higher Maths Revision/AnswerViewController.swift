@@ -10,7 +10,6 @@ import UIKit
 
 class AnswerViewController: UIViewController {
     
-    
     @IBOutlet weak var SolutionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var solutionImage: UIImageView!
@@ -22,7 +21,6 @@ class AnswerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(" answer is  \(question.correctAns)")
         answerLabel.text = question.correctAns
         //display the solution - may need to split this over lines - display it better
         SolutionLabel.text = question.solution

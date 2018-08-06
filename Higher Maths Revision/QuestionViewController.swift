@@ -61,7 +61,6 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
         
         view.addGestureRecognizer(tap)
         
-        print("on page  \(pageIndex)")
         displayQuestionData()
         
         //need to set up results - must record if they have a try or not
@@ -301,16 +300,12 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
         newResult.attempts = numberAttempts
         print("grade got \(grade)")
         newResult.score = grade
-//        newResult.questionTitle = questionList[pageIndex].title
-//        newResult.questionTopic = questionList[pageIndex].topic
-//        newResult.questionUnit = questionList[pageIndex].unit
  
         
         //send the newresult to the master to update the array of results for second time
         //master sends the full array updated back - i hope
         questionResults = resultsH!(newResult)
         
-        print ("back out score  )")
         
         return resultText
         
@@ -378,7 +373,6 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
         let screenImage = renderer.image { ctx in
             view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         }
-        print ("saving")
         //create a unique name to save it as - title and id
         let savedAs = questionList[pageIndex].title + String(questionList[pageIndex].id)
         let dataFiles = DataFiles()
@@ -392,8 +386,7 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
         
         performSegue(withIdentifier: "showFormulaSegue", sender: self)
     }
-    
-//    
+       
 }//End Class
 
 
