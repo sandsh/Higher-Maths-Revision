@@ -211,6 +211,7 @@
 				CAFB050220E5109400631752 /* Frameworks */,
 				CAFB050320E5109400631752 /* Resources */,
 				AFD3D3E556812365EE333A9F /* [CP] Embed Pods Frameworks */,
+				CB0DF256B6167C1FE299B16E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -304,6 +305,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Higher Maths Revision/Pods-Higher Maths Revision-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB0DF256B6167C1FE299B16E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Higher Maths Revision/Pods-Higher Maths Revision-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/AppCenter/AppCenterDistributeResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AppCenterDistributeResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Higher Maths Revision/Pods-Higher Maths Revision-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

@@ -61,11 +61,14 @@ class EntryViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         //if no question data in the table
         if !setUpData.doesTableExist(fileURL: fileURL) {
+            print("setting up data - table not exist")
             let questionList = ReadJason.data()
             setUpData.openOrCreateDB(fileURL: fileURL)
             for question in questionList {
                 setUpData.addValuesToDB(newQ: question, fileURL: fileURL)
             }
+        } else {
+            print("table does exist")
         }
         
         

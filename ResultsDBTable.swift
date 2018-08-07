@@ -18,7 +18,7 @@ class ResultsDBTable {
     func openORCreateResultsTable(){
         
         var dbPointer:OpaquePointer?
-        
+        print("creating table now")
         //Try opening the database - error if any problems
         if sqlite3_open(fileURL.path, &dbPointer) == SQLITE_OK {
             print("path opened")

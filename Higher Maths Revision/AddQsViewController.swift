@@ -53,8 +53,9 @@ class AddQsViewController: UIViewController, UIImagePickerControllerDelegate, UI
         //add a button to navigation bar that allows adding images
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewImage))
 
+        
         setupDB.openOrCreateDB(fileURL: questionFileURL)
-        print("database opened or created")
+        print("Add q's - database opened or created")
     }
     
     //Called when the tap is recognized.

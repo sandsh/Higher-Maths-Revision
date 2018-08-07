@@ -24,6 +24,7 @@ class SetUpDatabase {
             print("error opening database")
         }
         
+        print("creating table in call openOr")
         
         //Create the table if it doesn't exist
         if sqlite3_exec(dbPointer, "CREATE TABLE IF NOT EXISTS \(tableName) (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, qText TEXT, imageStr TEXT, correctAnswer TEXT, wrongAnswers TEXT, solution TEXT, hint TEXT, level TEXT, unit TEXT, topic TEXT, tags TEXT, qType TEXT )", nil, nil, nil) != SQLITE_OK {
@@ -36,11 +37,25 @@ class SetUpDatabase {
     func doesTableExist (fileURL: URL) -> Bool{
         
         var dbPointer:OpaquePointer?
-        var notExist:Bool = false
-        if sqlite3_open(fileURL.path, &dbPointer) != SQLITE_OK {
-            notExist = true
+
+        if sqlite3_open(fileURL.path, &dbPointer) == SQLITE_OK {
+            print("path opened")
         }
-        return notExist
+        var Exist:Bool = true
+        let queryString2 = "SELECT * FROM \(tableName)"
+        var stmPointer: OpaquePointer?
+        
+        //prepare the query - see if any data
+        if sqlite3_prepare(dbPointer, queryString2, -1, &stmPointer, nil) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(dbPointer)!)
+            print("error preparing Select: \(errmsg)")
+            Exist = false
+            print("table doesn't exist")
+        } else {
+                print("table ok")
+                Exist = true
+        }
+        return Exist
         
 //        "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='table_name'"
         

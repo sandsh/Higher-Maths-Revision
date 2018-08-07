@@ -34,6 +34,7 @@ class QuestionResultsViewController: UIViewController, UICollectionViewDelegate,
         self.questionGradesCV.dataSource = self
         
         //update the table with the data
+        print("in results - creating results table")
         resultsTable.openORCreateResultsTable()
         //add the results to the table
         updateResultsDB(resultList: questsResults)
