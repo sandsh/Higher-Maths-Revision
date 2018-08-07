@@ -27,8 +27,8 @@ class CustomFlowLayout : UICollectionViewFlowLayout {
     }
 }
 
-//make a global variable of the file path - so I only have to change table names here  - now more than one table
 
+//test this is still ok after pull
 
 class EntryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
