@@ -35,6 +35,8 @@
 		CAC86B9C2100CB73007D22FF /* FormulaeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC86B9B2100CB73007D22FF /* FormulaeTableViewController.swift */; };
 		CAC86B9E2100DD35007D22FF /* Formula.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC86B9D2100DD35007D22FF /* Formula.swift */; };
 		CAD5CF4320EAA5E4001732AF /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD5CF4220EAA5E4001732AF /* QuestionViewController.swift */; };
+		CAEA50162118F05B003BFA2B /* QuestionData.json in Resources */ = {isa = PBXBuildFile; fileRef = CAEA50152118F05B003BFA2B /* QuestionData.json */; };
+		CAEA50182118F091003BFA2B /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA50172118F091003BFA2B /* ReadJson.swift */; };
 		CAF4A26820F376AF007DB9F4 /* MasterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF4A26720F376AF007DB9F4 /* MasterPageViewController.swift */; };
 		CAF672522113567100EAE5FF /* QuestionResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF672512113567100EAE5FF /* QuestionResultsViewController.swift */; };
 		CAF672582113576D00EAE5FF /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF672572113576D00EAE5FF /* Results.swift */; };
@@ -82,6 +84,8 @@
 		CAC86B9B2100CB73007D22FF /* FormulaeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaeTableViewController.swift; sourceTree = "<group>"; };
 		CAC86B9D2100DD35007D22FF /* Formula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formula.swift; sourceTree = "<group>"; };
 		CAD5CF4220EAA5E4001732AF /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		CAEA50152118F05B003BFA2B /* QuestionData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuestionData.json; sourceTree = "<group>"; };
+		CAEA50172118F091003BFA2B /* ReadJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
 		CAF4A26720F376AF007DB9F4 /* MasterPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPageViewController.swift; sourceTree = "<group>"; };
 		CAF672512113567100EAE5FF /* QuestionResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionResultsViewController.swift; sourceTree = "<group>"; };
 		CAF672572113576D00EAE5FF /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
@@ -122,8 +126,10 @@
 			isa = PBXGroup;
 			children = (
 				CAF672572113576D00EAE5FF /* Results.swift */,
+				CAEA50152118F05B003BFA2B /* QuestionData.json */,
 				CA3279E92117256B00BDD38D /* ResultsDBTable.swift */,
 				CAC86B9D2100DD35007D22FF /* Formula.swift */,
+				CAEA50172118F091003BFA2B /* ReadJson.swift */,
 				CA0BAF9521062BF2008CBC12 /* FormulaDBTable.swift */,
 				CA0BCA1020F67F48008020BF /* createQuestions.swift */,
 				CA0BCA0E20F619C0008020BF /* ManageQuestionData.swift */,
@@ -257,6 +263,7 @@
 				CAFB051320E5109600631752 /* LaunchScreen.storyboard in Resources */,
 				CAFB051020E5109600631752 /* Assets.xcassets in Resources */,
 				CAFB050E20E5109400631752 /* Main.storyboard in Resources */,
+				CAEA50162118F05B003BFA2B /* QuestionData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAEA50182118F091003BFA2B /* ReadJson.swift in Sources */,
 				CA3279EA2117256B00BDD38D /* ResultsDBTable.swift in Sources */,
 				CAFB051B20E519F400631752 /* UnitsTableViewController.swift in Sources */,
 				CA7451F520E6788100FBF600 /* ManageDBData.swift in Sources */,

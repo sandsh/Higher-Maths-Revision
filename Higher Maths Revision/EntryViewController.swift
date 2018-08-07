@@ -28,11 +28,11 @@ class CustomFlowLayout : UICollectionViewFlowLayout {
 }
 
 //make a global variable of the file path - so I only have to change table names here  - now more than one table
-//let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("questionsTable3.sqlite")
+
 
 class EntryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    
+    let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("questionsTable4.sqlite")
     @IBOutlet weak var areaCollectionView: UICollectionView!
     
     var mainViewImages: [UIImage] = []
@@ -46,17 +46,28 @@ class EntryViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(iosMathVersionNumber)
         //don't forget datasource and delegate class above
         areaCollectionView.dataSource = self
         areaCollectionView.delegate = self
-        // Do any additional setup after loading the view.
+        // load the images for the entry screen
         mainViewImages.append(#imageLiteral(resourceName: "units 2"))
         mainViewImages.append(#imageLiteral(resourceName: "Tests"))
         mainViewImages.append(#imageLiteral(resourceName: "Daily Revision copy"))
         mainViewImages.append(#imageLiteral(resourceName: "Formulae 2"))
         mainViewImages.append(#imageLiteral(resourceName: "Saves"))
         mainViewImages.append(#imageLiteral(resourceName: "Results 2 "))
+        
+        let setUpData = SetUpDatabase()
+        
+        //if no question data in the table
+        if !setUpData.doesTableExist(fileURL: fileURL) {
+            let questionList = ReadJason.data()
+            setUpData.openOrCreateDB(fileURL: fileURL)
+            for question in questionList {
+                setUpData.addValuesToDB(newQ: question, fileURL: fileURL)
+            }
+        }
+        
         
 //        collectionView?.setCollectionViewLayout(CustomFlowLayout(), animated: false)
     }

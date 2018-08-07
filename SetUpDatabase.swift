@@ -33,6 +33,18 @@ class SetUpDatabase {
         
     }
     
+    func doesTableExist (fileURL: URL) -> Bool{
+        
+        var dbPointer:OpaquePointer?
+        var notExist:Bool = false
+        if sqlite3_open(fileURL.path, &dbPointer) != SQLITE_OK {
+            notExist = true
+        }
+        return notExist
+        
+//        "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='table_name'"
+        
+    }
     func addValuesToDB (newQ:Question, fileURL:URL) {
         
         var db: OpaquePointer?
