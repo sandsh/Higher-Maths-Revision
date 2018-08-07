@@ -1,5 +1,10 @@
 # Higher-Maths-Revision
 
 Beta Testing stage.
-A new iOS revision app for students use in scottis schools 
+
+</p>
+A new iOS revision app for students use in scottish schools 
 Higher Maths revision questions 
+
+</p>
+Masters project 
