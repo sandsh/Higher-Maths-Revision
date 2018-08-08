@@ -19,7 +19,7 @@ class ReadJason {
         
         var questionList: [Question] = []
         
-        if let jsonPath: String = Bundle.main.path(forResource: "QuestionData", ofType: "json"), let jsonData: Data = NSData(contentsOfFile: jsonPath) as? Data {
+        if let jsonPath: String = Bundle.main.path(forResource: "QuestionData", ofType: "json"), let jsonData: Data = NSData(contentsOfFile: jsonPath) as Data? {
             do {
                 let json: AnyObject = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as AnyObject
                 
@@ -30,7 +30,7 @@ class ReadJason {
                     print("got a dictionary")
                     for quest in question!  {
                         let title = quest["title"] as? String
-                        let qtext = quest["qtext"] as? [String:String]
+                        let qtext = quest["qtext"] as? String
                         let imageStr = quest["image"] as? String
                         let solution = quest["solution"] as? [String]
                         let correct = quest["correctAns"] as? String
@@ -41,32 +41,28 @@ class ReadJason {
                         let  unit = quest["unit"] as? Int
                         let  tags = quest["tags"] as? [String]
                         let type = quest["type"] as? String
-                        let solutionImage = quest["solImage"] as? String
-                        print(" out of json  \(title) \(qtext!["text"]) \(hint)")
+ //                       let solutionImage = quest["solImage"] as? String
+ //                       print(" out of json  \(title) \(qtext) \(hint)")
                         
-                        let questionText: String
-                        let mathText = qtext!["mathLabel"]
-                        if mathText == "none" {
-                            questionText = qtext!["text"]!
-                        } else {
-                            questionText = qtext!["text"]! + "{" + mathText!
-                        }
+ //                       let questionText: String
+//                        let mathText = qtext!["mathLabel"]
+//                        if mathText == "none" {
+//                            questionText = qtext!["text"]!
+//                        } else {
+//                            questionText = qtext!["text"]! + "{" + mathText!
+//                        }
                         
                         var solutionStr: String = ""
-                        if solutionImage == "none" {
+//                        if solutionImage == "none" {
                             for lines in solution! {
                                 solutionStr = solutionStr + lines
                             }
-                        } else {
-                            solutionStr = solutionImage!
-                        }
+//                        } else {
+//                            solutionStr = solutionImage!
+//                        }
                        
-                        questionList.append(Question(id: 0, title: title!, imageStr:imageStr!, qText: questionText, correctAns: correct!, answers: answers as! [String], solution: solutionStr, hint: hint!, level: level!, unit: unit!, topic: topic!, tags: tags!, qType:type!))
+                        questionList.append(Question(id: 0, title: title!, imageStr:imageStr!, qText: qtext!, correctAns: correct!, answers: answers as! [String], solution: solutionStr, hint: hint!, level: level!, unit: unit!, topic: topic!, tags: tags!, qType:type!))
                         
-                    
-//                    let questionFileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("questionsTable4.sqlite")
-                    
-//                    setupDB.addValuesToDB(newQ: newQuestion, fileURL:questionFileURL)
                 
                     }
                 }

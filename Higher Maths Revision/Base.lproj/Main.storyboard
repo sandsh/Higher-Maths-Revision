@@ -910,13 +910,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Answers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xuc-IT-Yuh">
-                                        <rect key="frame" x="0.0" y="470" width="343" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ldU-Dr-qUG">
                                         <rect key="frame" x="21" y="125" width="282" height="30"/>
                                         <nil key="textColor"/>
@@ -935,6 +928,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gz2-fw-uSv">
+                                        <rect key="frame" x="1" y="464" width="342" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Show Answers"/>
+                                        <connections>
+                                            <action selector="showAnswers:" destination="mvv-rP-IEu" eventType="touchUpInside" id="r6d-Xy-EwA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="GtB-lr-1ba" firstAttribute="top" secondItem="HUm-bh-zBg" secondAttribute="bottom" constant="15" id="2Ue-XM-I6r"/>
@@ -1009,11 +1011,11 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="AnswerTextField" destination="ldU-Dr-qUG" id="lJv-kF-9lX"/>
                         <outlet property="myLabel" destination="xDU-8B-NaR" id="24u-vZ-duz"/>
+                        <outlet property="q1Answer" destination="ldU-Dr-qUG" id="lJv-kF-9lX"/>
                         <outlet property="q1Text" destination="SKL-vb-h8k" id="Bu8-Fr-Bdj"/>
                         <outlet property="q1View" destination="eJw-Nk-rJL" id="wnz-qR-ZDM"/>
-                        <outlet property="q2AnswerText" destination="JyC-gC-LP0" id="zL9-mq-bOD"/>
+                        <outlet property="q2Answer" destination="JyC-gC-LP0" id="zL9-mq-bOD"/>
                         <outlet property="q2Text" destination="31t-PZ-YZC" id="9ca-Hl-LUZ"/>
                         <outlet property="q2View" destination="YL4-ng-mO8" id="QXk-Eq-m2c"/>
                         <outlet property="q3Answer" destination="fKE-qr-seE" id="wE5-6Q-1dL"/>
@@ -1149,7 +1151,7 @@
                         <segue destination="dYb-E6-RcQ" kind="show" identifier="showUnitsSegue" id="Mgp-N5-TkQ"/>
                         <segue destination="TK1-7U-9Gm" kind="show" identifier="showTestsSegue" id="1mI-2H-guQ"/>
                         <segue destination="mvv-rP-IEu" kind="show" identifier="showDailySegue" id="Xgd-ZX-ag2"/>
-                        <segue destination="8zl-no-rcM" kind="show" identifier="showResultsSegue" id="rEJ-0L-ZCR"/>
+                        <segue destination="8zl-no-rcM" kind="show" identifier="showAllResultsSegue" id="rEJ-0L-ZCR"/>
                         <segue destination="KJh-Fm-vhg" kind="show" identifier="showSavesSegue" id="FUE-tu-zv6"/>
                     </connections>
                 </viewController>

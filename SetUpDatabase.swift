@@ -117,7 +117,7 @@ class SetUpDatabase {
             print("error binding answer: \(errmsg)")
             return
         }
-        print("string sent to table \(ansString)")
+        
         if sqlite3_bind_text(inStatement, 5, ansString, -1, SQLITE_TRANSIENT) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error binding answer: \(errmsg)")
@@ -181,7 +181,7 @@ class SetUpDatabase {
             print("error finalising statement: \(errmsg)")
         }
         
-        print ("values added to database")
+        print ("setup - values added to database")
     }
    
     

@@ -19,11 +19,11 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
    
     @IBOutlet weak var q1Text: UILabel!
     @IBOutlet weak var q1View: UIView!
-    @IBOutlet weak var AnswerTextField: UITextField!
+    @IBOutlet weak var q1Answer: UITextField!
     
     @IBOutlet weak var q2Text: UILabel!
     @IBOutlet weak var q2View: UIView!
-    @IBOutlet weak var q2AnswerText: UITextField!
+    @IBOutlet weak var q2Answer: UITextField!
     
     
     @IBOutlet weak var q3View: UIView!
@@ -31,6 +31,8 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
     @IBOutlet weak var q3Answer: UITextField!
     
     let newQuestion = CreateQuestion()
+    var questionList: [Question] = []
+    var answers:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +48,7 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
 //        q1View.addSubview(container1)
         
         
-        
+        print ("daily num of quests \(questionList.count)")
         
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -80,8 +82,15 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
             subview.removeFromSuperview()
         }
         myLabel.text = "Answer the following"
+        q1Answer.text = " "
+        q2Answer.text = " "
+        q3Answer.text = " "
+        
+        questionList.removeAll()
+        answers.removeAll()
         getNewSetQuestions()
- //       DisplayQuestions()
+
+        print ("new test num of quests \(questionList.count)")
     
     }
     
@@ -101,47 +110,58 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
         //Q1 - Factorise
         
         var question1Label: UILabel
-        let container = UIView(frame: CGRect(x: 5, y: 0, width: 200, height: 100))
+        let container = UIView(frame: CGRect(x: 2, y: -7, width: 200, height: 100))
 
-        question1Label = getQuestion1()         // this was created by swift and not with iosMath
-//        Q1Label.attributedText = question1Label.attributedText
-//        questionText.text = templateQuestion.rndQuestion.qText
+        
+        question1Label = getQuestion1()
         question1Label.frame = container.frame
         container.addSubview(question1Label)
         q1View.addSubview(container)
 
         //Q2 - Complete Square
         
-        var question2Label: MTMathUILabel
+        var mathTemplateQuestion1 = (questionData: Question(), questionLabel: MTMathUILabel())
+        
         let container2 = UIView(frame: CGRect(x: 2, y: -5, width: 250, height: 80))
         container2.clearsContextBeforeDrawing = true
-        question2Label = newQuestion.createCompleteSquare()
-        //
+        mathTemplateQuestion1 = newQuestion.createCompleteSquare()
+        //add question to a list
+        questionList.append(mathTemplateQuestion1.questionData)
+        //add answer
+        answers.append(mathTemplateQuestion1.questionData.correctAns)
+
+        let question2Label = mathTemplateQuestion1.questionLabel
         question2Label.frame = container2.frame
         container2.addSubview(question2Label)
         q2View.addSubview(container2)
-        q2Text.text = "State values of a,b and c when the quadratic "
+        q2Text.text = "Find a,b,c when in form a(x+b)^2 + c "
         
         //Q3 - Magnitude of Vector
+        var mathTemplateVQuestion2 = (questionVData: Question(), questionVLabel: MTMathUILabel())
         
-        var question3Label: MTMathUILabel
-        let container3 = UIView(frame: CGRect(x: 2, y: -5, width: 250, height: 80))
+        let container3 = UIView(frame: CGRect(x: 2, y: -4, width: 250, height: 80))
         container3.clearsContextBeforeDrawing = true
         // get the vector question as a label
-        question3Label = newQuestion.getVectorMagnitude()
-        //
+        mathTemplateVQuestion2 = newQuestion.getVectorMagnitude()
+        questionList.append(mathTemplateVQuestion2.questionVData)
+        //set answer
+        answers.append(mathTemplateQuestion1.questionData.correctAns)
+        print(" q3 ans\(mathTemplateVQuestion2.questionVData.correctAns)")
+        let question3Label = mathTemplateVQuestion2.questionVLabel
         question3Label.frame = container3.frame
         container3.addSubview(question3Label)
         q3View.addSubview(container3)
         q3Text.text = "Find the magnitude of the vector  "
         
-
     }
     
     func getQuestion1() -> UILabel {
         
         var templateQuestion = (rndQuestion: Question(), questLabel: UILabel())
         templateQuestion = newQuestion.setFactoriseData()
+        print(" q1 ans\(templateQuestion.rndQuestion.correctAns)")
+        answers.append(templateQuestion.rndQuestion.correctAns)
+        questionList.append(templateQuestion.rndQuestion)
         q1Text.text = templateQuestion.rndQuestion.qText
         var q1Label: UILabel
         q1Label = templateQuestion.questLabel
@@ -151,12 +171,17 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
         return q1Label
     }
     
+ 
+    @IBAction func showAnswers(_ sender: UIButton) {
+        
+        print ("before first answer \(questionList[0].title)")
+        q1Answer.text = answers[0]
+        print ("before second answer \(questionList[1].title) ")
+        q2Answer.text = answers[1]
+        print ("before third answer \(questionList[2].title) ")
+        q3Answer.text = answers[2]
+    }
     
-    
-    //this doesn't work
-    //
-    //        q1View.addSubview(question1Label)
-    //        q1View.bringSubview(toFront: question1Label)
     
     //this works
     //        Q1Label.attributedText = question1Label.attributedText

@@ -14,7 +14,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     var allResults = [Results]()
     var resultsTable = ResultsDBTable()
     var delQuestionIndexPath : IndexPath? = nil     //handle on what line is to be delete
-    
+    var dummy: String = ""
     var testResults: [(testTitle: String, percentScore: Int, numCorrect: Int, numQuestions: Int )] = []
     
     override func viewDidLoad() {
@@ -33,23 +33,24 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     //MARK: Table handlers - listing results
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return testResults.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("got any \(testResults.count)")
-        return testResults.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
 
         print("getting cell data")
-        cell.textLabel?.text = testResults[indexPath.row].testTitle
         
-        let detail1 = String(testResults[indexPath.row].percentScore) +
-         String(testResults[indexPath.row].numCorrect) + "/" + String(testResults[indexPath.row].numQuestions) + " correct"
+        cell.textLabel?.text = testResults[indexPath.section].testTitle
         
+        let detail1 = String(testResults[indexPath.section].percentScore) +
+         String(testResults[indexPath.section].numCorrect) + "/" + String(testResults[indexPath.section].numQuestions) + " correct"
+        print("detail1")
         cell.detailTextLabel?.text = detail1
         
         return cell

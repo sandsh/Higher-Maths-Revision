@@ -9,23 +9,23 @@
 import UIKit
 import iosMath
 
-//MARK: - Animate the cells as they are displayed
-class CustomFlowLayout : UICollectionViewFlowLayout {
-    var insertingIndexPaths = [IndexPath]()
-    
-    override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        let attributes = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath)
-        
-        //if insertingIndexPaths.contains(itemIndexPath) {
- //       attributes?.alpha = 0.0
-//        attributes?.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-//        attributes?.transform = CGAffineTransform(translationX: 0, y: 500.0)
-        
-        //}
-        
-        return attributes
-    }
-}
+////MARK: - Animate the cells as they are displayed
+//class CustomFlowLayout : UICollectionViewFlowLayout {
+//    var insertingIndexPaths = [IndexPath]()
+//
+//    override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+//        let attributes = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath)
+//
+//        //if insertingIndexPaths.contains(itemIndexPath) {
+// //       attributes?.alpha = 0.0
+////        attributes?.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+////        attributes?.transform = CGAffineTransform(translationX: 0, y: 500.0)
+//
+//        //}
+//
+//        return attributes
+//    }
+//}
 
 
 //test this is still ok after pull
@@ -40,7 +40,7 @@ class EntryViewController: UIViewController, UICollectionViewDelegate, UICollect
     var unitIndex: Int!
     
     
-    let segueIds = ["showUnitsSegue", "showTestsSegue", "showDailySegue", "showFormulaSegue", "showSavesSegue", "showResultsSegue"]
+    let segueIds = ["showUnitsSegue", "showTestsSegue", "showDailySegue", "showFormulaSegue", "showSavesSegue", "showAllResultsSegue"]
     
     
     override func viewDidLoad() {
@@ -115,9 +115,6 @@ class EntryViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
 
     
-
-
-    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -128,14 +125,14 @@ class EntryViewController: UIViewController, UICollectionViewDelegate, UICollect
 //            let destination = segue.destination as? Unit2CollectionViewController
         case "showTestsSegue":
             let destination = segue.destination as? TestsTableViewController
-//        case "showDailySegue":
-//            let destination = segue.destination as? UnitsTableViewController
+        case "showDailySegue":
+            let destination = segue.destination as? DailyViewController
         case "showFormulaeSegue":
             let destination = segue.destination as? FormulaeTableViewController
             destination?.viewType  = "All"
-//        case "showResultsSegue":
-//            let destination = segue.destination as? UnitsTableViewController
-//                destination?.unitName  = unitNames[unitIndex]
+        case "showResultsSegue":
+            let destination = segue.destination as? ResultsViewController
+            destination?.dummy  = "Results"
         default:
             break
         }

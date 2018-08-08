@@ -15,13 +15,14 @@ class CreateQuestion {
     var questionEquation: String!
     var questionLabel: UILabel!
     var answerEquation: String!
-    var templateQuestion = (questionData: Question(), questionLabel: UILabel()) //created a tuple to send back label
+   
     var myLabel: UILabel!
     let newQuestion = Question()
     
     func setFactoriseData() -> (Question, UILabel) {
-        
-        
+         //created a tuple to send back label
+         var templateQuestion = (questionData: Question(), questionLabel: UILabel())
+       
         newQuestion.id = 101
         newQuestion.title = "Factorise"
         newQuestion.qText = "Factorise the equation "
@@ -43,7 +44,7 @@ class CreateQuestion {
         newQuestion.qType = "TEM"
         templateQuestion.questionData = newQuestion
         templateQuestion.questionLabel = myLabel
-        print("new question created")
+
     
         return templateQuestion         //leaving label in till I know it works
         
@@ -234,7 +235,7 @@ class CreateQuestion {
 //        return label
 //    }
     
-    func createCompleteSquare () -> MTMathUILabel {
+    func createCompleteSquare () -> (Question, MTMathUILabel) {
         
         // a(x + b)^2 - c
         
@@ -246,7 +247,8 @@ class CreateQuestion {
         
 //        let sqrLabel: MTMathUILabel = MTMathUILabel()
 //        sqrLabel.latex = "a(x + b)^2 + c"
-        
+        //set up answer before variables change
+        var answerStr = "a = \(varA) b= \(varB) c = \(varC)"
         var xCoeff = 2*varB*varA
         var numTerm = varB*varB + varC
         //check the value of the variables for negatives - change displayed sign
@@ -282,19 +284,38 @@ class CreateQuestion {
 //        } else {
 //            varBStr = String(cVar)
 //        }
+    
         questLabel.latex = "\(varAStr)x^2 \(firstSign) \(xCoeff)x \(secondSign) \(numTerm)"
         //in \\ the\\ form\\ a(x + b)^2 + c "
         print("cs \(questLabel.latex)")
         questLabel.fontSize = 28
-        return questLabel
+        
+        var mathTemplateQuestion = (questionData: Question(), questionLabel: MTMathUILabel())
+        
+        newQuestion.id = getRandomNums(max: 1000, negative: false)[0]
+        newQuestion.title = "Complete the Square"
+        newQuestion.qText = "Complete the square of"
+        newQuestion.correctAns = answerStr
+        newQuestion.answers = ["a = 2 b = 3 c= -1, a = 1 b = -2 c= 5,a = 2 b = -4 c= 7"]
+        newQuestion.solution = "Half x coefficient "
+        newQuestion.hint = "Take out any coefficient of x squared first"
+        newQuestion.level = 1
+        newQuestion.unit = 1
+        newQuestion.topic = "ALG"
+        newQuestion.tags = ["powers", "quadratics"]
+        newQuestion.qType = "TEM"
+        mathTemplateQuestion.questionData = newQuestion
+        mathTemplateQuestion.questionLabel = questLabel
+        
+        return mathTemplateQuestion
     }
     
-    func getVectorMagnitude () -> MTMathUILabel{
+    func getVectorMagnitude () -> (Question, MTMathUILabel){
         // format of question -  v = ax + by + cz  find |v|
         
         //get random numbers
         let random = getRandomNums(max: 9, negative: true)
-        var xCoef = random[0]
+        let xCoef = random[0]
         var yCoef = random[1]
         var zCoef = random[2]
         
@@ -303,6 +324,7 @@ class CreateQuestion {
         //square root the answer
         let vecMagnitude = sqrt(Double(vectorSquares))
         
+        let answerStr = String(format: "%.2f", vecMagnitude)
         //now set up the maths display
         let vectorLabel: MTMathUILabel = MTMathUILabel()
         var firstSign: String = ""
@@ -321,6 +343,7 @@ class CreateQuestion {
         var xCoefStr: String
         var yCoefStr: String
         var zCoefStr: String
+        
         if   xCoef == 1    {
             xCoefStr = ""
         }else if xCoef == -1 {
@@ -343,7 +366,24 @@ class CreateQuestion {
         vectorLabel.latex = "v = \(xCoefStr)x \(firstSign) \(yCoefStr)y \(secondSign) \(zCoefStr)z "
         vectorLabel.fontSize = 28
         
-        return vectorLabel
+        var mathTemplateQuestion = (questionData: Question(), questionLabel: MTMathUILabel())
+        
+        newQuestion.id = getRandomNums(max: 1000, negative: false)[0]
+        newQuestion.title = "Magnitude"
+        newQuestion.qText = "Find the magnitude of"
+        newQuestion.correctAns = answerStr
+        newQuestion.answers = ["12, 15, 8"]
+        newQuestion.solution = "Sum of squares then square root"
+        newQuestion.hint = "Look at the formula"
+        newQuestion.level = 1
+        newQuestion.unit = 1
+        newQuestion.topic = "VEC"
+        newQuestion.tags = ["length", "vectors"]
+        newQuestion.qType = "TEM"
+        mathTemplateQuestion.questionData = newQuestion
+        mathTemplateQuestion.questionLabel = vectorLabel
+        
+        return mathTemplateQuestion
         
     }
     

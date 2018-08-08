@@ -161,7 +161,6 @@
 				CA3279EB2117989600BDD38D /* ResultsViewController.swift */,
 				CA6B8B6F210488D600083255 /* EntryViewController.swift */,
 				CA6B8B712104905400083255 /* EntryCollectionViewCell.swift */,
-				CAFB050A20E5109400631752 /* EntryTableViewController.swift */,
 				CAFB051A20E519F400631752 /* UnitsTableViewController.swift */,
 				CAF9E1E020E53AB400B4247D /* TopicsTableViewController.swift */,
 				CAF4A26720F376AF007DB9F4 /* MasterPageViewController.swift */,
@@ -171,7 +170,6 @@
 				CA2BD3D3211445380054A8FC /* QuestionResultsCollectionViewCell.swift */,
 				CA4F1093210876A7003A3EE6 /* SavesTableViewController.swift */,
 				CA4F10952108E7F3003A3EE6 /* SavesViewController.swift */,
-				CAA8A13020ECC03500F649DB /* EnterQViewController.swift */,
 				CAFB051C20E51C7200631752 /* Unit2CollectionViewController.swift */,
 				CAFB051E20E51DBA00631752 /* TopicCollectionViewCell.swift */,
 				CA3B43BD210092F500F59539 /* TestsTableViewController.swift */,
@@ -186,6 +184,8 @@
 				CAFB051120E5109600631752 /* LaunchScreen.storyboard */,
 				CAFB051420E5109600631752 /* Info.plist */,
 				CAAFCA862107A123000B1ABB /* Higher Maths Revision-Bridging-Header.h */,
+				CAFB050A20E5109400631752 /* EntryTableViewController.swift */,
+				CAA8A13020ECC03500F649DB /* EnterQViewController.swift */,
 			);
 			path = "Higher Maths Revision";
 			sourceTree = "<group>";
