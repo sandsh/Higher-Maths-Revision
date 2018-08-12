@@ -36,7 +36,8 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("in topics")
+        
         QuestionList = manageDB.getDataFromDB()
         // set up a list with only the area selected
         self.title = areaName

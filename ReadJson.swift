@@ -34,7 +34,7 @@ class ReadJason {
                         let imageStr = quest["image"] as? String
                         let solution = quest["solution"] as? [String]
                         let correct = quest["correctAns"] as? String
-                        let answers = quest["answers"]
+                        let answers = quest["answers"]  as? [String]
                         let  hint = quest["hint"] as? String
                         let  level = quest["level"] as? Int
                         let  topic = quest["topic"] as? String
@@ -42,7 +42,9 @@ class ReadJason {
                         let  tags = quest["tags"] as? [String]
                         let type = quest["type"] as? String
  //                       let solutionImage = quest["solImage"] as? String
- //                       print(" out of json  \(title) \(qtext) \(hint)")
+                        
+                        print(" out of json t qt correct  \(String(describing: title)) \(String(describing: qtext)) \(correct)")
+                        
                         
  //                       let questionText: String
 //                        let mathText = qtext!["mathLabel"]
@@ -60,10 +62,13 @@ class ReadJason {
 //                        } else {
 //                            solutionStr = solutionImage!
 //                        }
-                       
+                       print ("sol ans hint  \(solutionStr)  \(answers) \(hint)  ")
+                       print ("level unit topic   \(level)  \(unit) \(topic)  ")
+                        print (" tags qtype  \(tags)  \(type)  ")
+                        
                         questionList.append(Question(id: 0, title: title!, imageStr:imageStr!, qText: qtext!, correctAns: correct!, answers: answers as! [String], solution: solutionStr, hint: hint!, level: level!, unit: unit!, topic: topic!, tags: tags!, qType:type!))
                         
-                
+                        
                     }
                 }
             } catch {

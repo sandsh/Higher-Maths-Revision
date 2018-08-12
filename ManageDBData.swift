@@ -41,7 +41,7 @@ class ManageDBData {
 //  //          return
 //   ***     // return nothing causes error - need to check this if not returning empty questionlist
 //        }
-        
+        print("get daa - before sql in" )
         //set up query to get everything from database
         let queryString2 = "SELECT * FROM \(tableName)"
         var stmPointer: OpaquePointer?
@@ -69,7 +69,7 @@ class ManageDBData {
             let tagsOut = String(cString: sqlite3_column_text(stmPointer, 11))
             let qTypeOut = String(cString: sqlite3_column_text(stmPointer, 12))
             
-
+            print("in loop round table  \(titleOut)")
             //unpack answers - randomise answers if it's a multiple choice question
             
             if qTypeOut == "MC" {

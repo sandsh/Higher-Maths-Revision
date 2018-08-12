@@ -35,9 +35,6 @@ class FormulaeTableViewController: UITableViewController {
         accessFormula.openFormulaTable()
         
     }
-//    override func viewDidAppear(_ animated: Bool) {
-//        reloadInputViews()
-//    }
     
     //this happens everytime the view is refreshed not just first time as viewdidload
     override func viewWillAppear(_ animated: Bool) {
@@ -67,10 +64,6 @@ class FormulaeTableViewController: UITableViewController {
         //return true if you want to process the return key user enters
         return true
     }
-    
-//    func didChangeValue<Value>(for keyPath: KeyPath<ListViewController, Value>) {
-//        formulaTableView.reloadData()
-//    }
     
     // MARK: - Table view data source
 
@@ -159,10 +152,8 @@ class FormulaeTableViewController: UITableViewController {
             //now delete the question from database too
             accessFormula.deleteQuestionOnDB(formulaID: formulaId)
         }
-            
-
+        
     }
-    
 
     //What to do when Cancel is chosen - nothing reset delete
     func cancelDeleteQuestion(alertAction: UIAlertAction!) {
@@ -181,7 +172,6 @@ class FormulaeTableViewController: UITableViewController {
         var currentTopic:String
         
         var uniqueTopics: [String] = []
-//        var tuple:(topic:String, formula:Formula)
         
         //set up the array of tuples from the list returned from dbtable
         //the first element is the topic, all the formula for that topic follows in the array
@@ -242,7 +232,6 @@ class FormulaeTableViewController: UITableViewController {
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
     }
- 
 
     /*
     // Override to support conditional rearranging of the table view.

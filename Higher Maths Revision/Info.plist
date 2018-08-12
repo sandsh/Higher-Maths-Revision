@@ -8,9 +8,7 @@
 			<key>CFBundleURLName</key>
 			<string></string>
 			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>appcenter-a06c529d-ee92-4ca9-be1f-aa0c41128b08</string>
-			</array>
+			<array/>
 		</dict>
 	</array>
 	<key>CFBundleDisplayName</key>

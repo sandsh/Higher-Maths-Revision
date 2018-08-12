@@ -71,11 +71,13 @@ class EntryViewController: UIViewController, UICollectionViewDelegate, UICollect
             print("table does exist")
         }
         
-        
+        print("aftertable updated")
 //        collectionView?.setCollectionViewLayout(CustomFlowLayout(), animated: false)
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        
+        print("after view appeared")
         
 //        areaCollectionView.setCollectionViewLayout(CustomFlowLayout(), animated: false)
         
@@ -83,6 +85,7 @@ class EntryViewController: UIViewController, UICollectionViewDelegate, UICollect
 //        self.imageview.animationDuration = 0.25
 //        self.imageview.startAnimating()
     }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -121,8 +124,6 @@ class EntryViewController: UIViewController, UICollectionViewDelegate, UICollect
         switch segue.identifier {
         case "showUnitsSegue":
             let destination = segue.destination as? UnitsTableViewController
-//        case "showUnit2Segue":
-//            let destination = segue.destination as? Unit2CollectionViewController
         case "showTestsSegue":
             let destination = segue.destination as? TestsTableViewController
         case "showDailySegue":
@@ -140,7 +141,7 @@ class EntryViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        print("selecting")
         unitIndex = indexPath.row
         performSegue(withIdentifier: segueIds[unitIndex], sender: self)
         

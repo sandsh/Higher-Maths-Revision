@@ -21,6 +21,7 @@ class UnitsTableViewController: UITableViewController {
     var U2TopicsList = ["Equations","Trig Equations","Differentiation","Integration", "Unit 2 Revision"]
     var U3TopicsList = ["Straight Lines","Circles","Sequences", "Calculus", "Unit 3 Revision"]
     
+    var topicImages = [[UIImage]]()
     
     //a name for the unit passed form the segue - could use to set up each view maybe??
 //    var unitName = String()
@@ -38,6 +39,9 @@ class UnitsTableViewController: UITableViewController {
             [cellData(opened: false, unit: "Unit 1", topicList: U1TopicsList),
              cellData(opened: false, unit: "Unit 2", topicList: U2TopicsList),
             cellData(opened: false, unit: "Unit 3", topicList: U3TopicsList) ]
+        
+        addTopicImages()
+        
         
     }
     
@@ -62,20 +66,34 @@ class UnitsTableViewController: UITableViewController {
         
         //offset the list for the title - to get the correct row subtract 1
         let dataIndex = indexPath.row - 1
-        //if this is the element in the section
+        //if this is the first element in the section
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
             cell.textLabel?.text = tableViewData[indexPath.section].unit
             cell.textLabel?.textColor = UIColor.blue
-
             cell.textLabel?.textAlignment = .center
+            let topicCell = cell as! TopicTableViewCell
+            topicCell.topicLabel.isHidden = true
+            topicCell.topicImage.isHidden = true
             return cell
         } else {
-//            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
+          //get the correct topic depending on the section and row
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.textLabel?.text = tableViewData[indexPath.section].topicList[dataIndex]
-            cell.textLabel?.textColor = UIColor.purple
-            cell.textLabel?.textAlignment = .left
+            cell.textLabel?.text = " "
+            
+            let topicCell = cell as! TopicTableViewCell
+            let topictext = tableViewData[indexPath.section].topicList[dataIndex]
+            topicCell.topicLabel.text = topictext
+
+            topicCell.textLabel?.textAlignment = .left
+//
+            let imageview:UIImageView = UIImageView(frame: CGRect(x: 250, y: 10, width: 50, height: 30))
+            imageview.clearsContextBeforeDrawing = true
+            let image:UIImage = topicImages[indexPath.section][dataIndex]
+            imageview.image = image
+
+            //set the content as the imageview
+            cell.contentView.addSubview(imageview)
             return cell
             
         }
@@ -94,7 +112,36 @@ class UnitsTableViewController: UITableViewController {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.lightGray
     }
+    //MARK: Class methods
     
+    func addTopicImages() {
+        var U1TopicImages: [UIImage] = []
+        var U2TopicImages: [UIImage] = []
+        var U3TopicImages: [UIImage] = []
+        
+        U1TopicImages.append(#imageLiteral(resourceName: "algebra logs"))
+        U1TopicImages.append(#imageLiteral(resourceName: "sine curve"))
+        U1TopicImages.append(#imageLiteral(resourceName: "functions"))
+        U1TopicImages.append(#imageLiteral(resourceName: "vector"))
+        U1TopicImages.append(#imageLiteral(resourceName: "units 2"))
+        
+        topicImages.append(U1TopicImages)
+        
+        U2TopicImages.append(#imageLiteral(resourceName: "synthetic division"))
+        U2TopicImages.append(#imageLiteral(resourceName: "trig eqn"))
+        U2TopicImages.append(#imageLiteral(resourceName: "differentiation"))
+        U2TopicImages.append(#imageLiteral(resourceName: "integration"))
+        U2TopicImages.append(#imageLiteral(resourceName: "units 2"))
+        
+        topicImages.append(U2TopicImages)
+        U3TopicImages.append(#imageLiteral(resourceName: "straightline"))
+        U3TopicImages.append(#imageLiteral(resourceName: "circles"))
+        U3TopicImages.append(#imageLiteral(resourceName: "limit"))
+        U3TopicImages.append(#imageLiteral(resourceName: "calculus"))
+        U3TopicImages.append(#imageLiteral(resourceName: "units 2"))
+        
+        topicImages.append(U3TopicImages)
+    }
     
     // MARK: - Navigation
     

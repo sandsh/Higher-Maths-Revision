@@ -101,6 +101,7 @@ class MasterPageViewController: UIViewController, UIPageViewControllerDelegate, 
 //        }
         pageContentVC.pageIndex = index
         print("on pageIndex \(index)")
+        pageContentVC.testType = testType
         
         pageContentVC.questionList = randomOrderQuestions
         

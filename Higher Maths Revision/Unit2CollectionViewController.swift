@@ -79,7 +79,7 @@ class Unit2CollectionViewController: UICollectionViewController {
         let header = collectionView.dequeueReusableCell(withReuseIdentifier: "head", for: indexPath)
       
         // set label to text from array
-        let topicCell = cell as! TopicCollectionViewCell
+        let topicCell = cell as! TopicTableViewCell
         let topictext = U2TopicsList[indexPath.item]
         topicCell.topicLabel.text = topictext
         

@@ -26,6 +26,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         
         resultsTableView.delegate = self
         resultsTableView.dataSource = self
+    
         print("got data \(testResults.count)")
     }
 
@@ -33,26 +34,45 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     //MARK: Table handlers - listing results
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return testResults.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("got any \(testResults.count)")
         return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
+        return testResults.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            
+//        let resultCell = cell as! AllResultsTableViewCell
         print("getting cell data")
         
-        cell.textLabel?.text = testResults[indexPath.section].testTitle
+//        resultCell.ResultsTitle.text = testResults[indexPath.row].testTitle
+        cell.textLabel?.text = testResults[indexPath.row].testTitle
+//        var resultLabel: UILabel!
+//        let container = UIView(frame: CGRect(x: 2, y: 5, width: 200, height: 100))
         
-        let detail1 = String(testResults[indexPath.section].percentScore) +
-         String(testResults[indexPath.section].numCorrect) + "/" + String(testResults[indexPath.section].numQuestions) + " correct"
-        print("detail1")
-        cell.detailTextLabel?.text = detail1
+        let detail = String(testResults[indexPath.row].percentScore) + "% " +
+            String(testResults[indexPath.row].numCorrect) + "/" + String(testResults[indexPath.row].numQuestions) + " correct"
+//could add icon - star etc - to detail
+//        if testResults[indexPath.row].percentScore > 49  {
+//            resultCell.gradeButton.setTitle("✵", for: .normal)
+//            resultCell.gradeButton.setTitleColor(UIColor.yellow, for: .normal)
+//        } else {
+//            resultCell.gradeButton.setTitle("◉", for: .normal)
+//            resultCell.gradeButton.setTitleColor(UIColor.purple, for: .normal)
+//        }
+
+//        resultCell.ScoreLabel.text = detail
         
+//        resultLabel.text = detail
+//        resultLabel.frame = container.frame
+//        container.addSubview(resultCell.ScoreLabel)
+//        resultCell.contentView.addSubview(container)
+//        resultCell.detailTextLabel?.text = detail
+        
+        cell.detailTextLabel?.text = detail
         return cell
     }
     
@@ -106,18 +126,6 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
             //now delete the question from database too
             resultsTable.deleteResultOnDB(testTitle: testTitle)
         }
-//        else {
-//            print ("deleting all maybe?")
-//            if resultsTable.deleteAll() {
-////                OutMessageLabel.text = "All questions deleted"
-//                //should not use reloadData when deleting(or inserting) a row? why??
-//                //tableupdates didn't like removing all - may need to do a loop call!!
-//                //works but screen not updated.
-//                //                questionsTableView.reloadData()
-//                testResults.removeAll()
-//            }
-            
-//        }
     }
     
     //What to do when Cancel is chosen - nothing reset delete
@@ -125,12 +133,10 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         delQuestionIndexPath = nil
     }
     
-    
-    
     func gatherResults() {
         
         var testResultTitles: [String] = []
-        var currentTitle: String = ""
+//        var currentTitle: String = ""
         var oneResult: (testTitle: String, percentScore: Int, numCorrect: Int, numQuestions: Int )
         let copyResults = allResults
         for result in copyResults {
@@ -138,7 +144,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
             var numQuests: Int = 0
             var correct: Int = 0
 //            currentTitle = result.testTitle
-            print("looping in copy")
+            
             //if we have't found this test title before
             if !testResultTitles.contains(result.testTitle) {
                 //add this new title to the list

@@ -20,6 +20,7 @@
 		CA3B43BE210092F500F59539 /* TestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B43BD210092F500F59539 /* TestsTableViewController.swift */; };
 		CA4F1094210876A7003A3EE6 /* SavesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F1093210876A7003A3EE6 /* SavesTableViewController.swift */; };
 		CA4F10962108E7F3003A3EE6 /* SavesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F10952108E7F3003A3EE6 /* SavesViewController.swift */; };
+		CA560FA1211B11C600156A74 /* AllResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA560FA0211B11C600156A74 /* AllResultsTableViewCell.swift */; };
 		CA56B84E20FCCC1C00762292 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA56B84D20FCCC1C00762292 /* SearchTableViewController.swift */; };
 		CA5F593320EA583900110593 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5F593220EA583900110593 /* ListViewController.swift */; };
 		CA6B8B70210488D600083255 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B8B6F210488D600083255 /* EntryViewController.swift */; };
@@ -48,7 +49,7 @@
 		CAFB051320E5109600631752 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFB051120E5109600631752 /* LaunchScreen.storyboard */; };
 		CAFB051B20E519F400631752 /* UnitsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB051A20E519F400631752 /* UnitsTableViewController.swift */; };
 		CAFB051D20E51C7200631752 /* Unit2CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB051C20E51C7200631752 /* Unit2CollectionViewController.swift */; };
-		CAFB051F20E51DBA00631752 /* TopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB051E20E51DBA00631752 /* TopicCollectionViewCell.swift */; };
+		CAFB051F20E51DBA00631752 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB051E20E51DBA00631752 /* TopicTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		CA3B43BD210092F500F59539 /* TestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsTableViewController.swift; sourceTree = "<group>"; };
 		CA4F1093210876A7003A3EE6 /* SavesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavesTableViewController.swift; sourceTree = "<group>"; };
 		CA4F10952108E7F3003A3EE6 /* SavesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavesViewController.swift; sourceTree = "<group>"; };
+		CA560FA0211B11C600156A74 /* AllResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllResultsTableViewCell.swift; sourceTree = "<group>"; };
 		CA56B84D20FCCC1C00762292 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		CA5F593220EA583900110593 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		CA6B8B6F210488D600083255 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +101,7 @@
 		CAFB051420E5109600631752 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAFB051A20E519F400631752 /* UnitsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsTableViewController.swift; sourceTree = "<group>"; };
 		CAFB051C20E51C7200631752 /* Unit2CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit2CollectionViewController.swift; sourceTree = "<group>"; };
-		CAFB051E20E51DBA00631752 /* TopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCollectionViewCell.swift; sourceTree = "<group>"; };
+		CAFB051E20E51DBA00631752 /* TopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +160,6 @@
 				CAAFCA8421079F31000B1ABB /* newfile.m */,
 				CAFB050820E5109400631752 /* AppDelegate.swift */,
 				CAFB050C20E5109400631752 /* Main.storyboard */,
-				CA3279EB2117989600BDD38D /* ResultsViewController.swift */,
 				CA6B8B6F210488D600083255 /* EntryViewController.swift */,
 				CA6B8B712104905400083255 /* EntryCollectionViewCell.swift */,
 				CAFB051A20E519F400631752 /* UnitsTableViewController.swift */,
@@ -170,18 +171,20 @@
 				CA2BD3D3211445380054A8FC /* QuestionResultsCollectionViewCell.swift */,
 				CA4F1093210876A7003A3EE6 /* SavesTableViewController.swift */,
 				CA4F10952108E7F3003A3EE6 /* SavesViewController.swift */,
-				CAFB051C20E51C7200631752 /* Unit2CollectionViewController.swift */,
-				CAFB051E20E51DBA00631752 /* TopicCollectionViewCell.swift */,
+				CAFB051E20E51DBA00631752 /* TopicTableViewCell.swift */,
 				CA3B43BD210092F500F59539 /* TestsTableViewController.swift */,
 				CAAFCA872107A763000B1ABB /* DailyViewController.swift */,
 				CAC86B9B2100CB73007D22FF /* FormulaeTableViewController.swift */,
 				CA192E6B2100F49A004D56F5 /* FormulaTableViewCell.swift */,
+				CA3279EB2117989600BDD38D /* ResultsViewController.swift */,
+				CA560FA0211B11C600156A74 /* AllResultsTableViewCell.swift */,
 				CA0BAF9721065D5E008CBC12 /* AddFormulaViewController.swift */,
 				CA7451F620E6B28800FBF600 /* AddQsViewController.swift */,
 				CA5F593220EA583900110593 /* ListViewController.swift */,
 				CA56B84D20FCCC1C00762292 /* SearchTableViewController.swift */,
 				CAFB050F20E5109600631752 /* Assets.xcassets */,
 				CAFB051120E5109600631752 /* LaunchScreen.storyboard */,
+				CAFB051C20E51C7200631752 /* Unit2CollectionViewController.swift */,
 				CAFB051420E5109600631752 /* Info.plist */,
 				CAAFCA862107A123000B1ABB /* Higher Maths Revision-Bridging-Header.h */,
 				CAFB050A20E5109400631752 /* EntryTableViewController.swift */,
@@ -344,6 +347,7 @@
 				CAFB050B20E5109400631752 /* EntryTableViewController.swift in Sources */,
 				CAF4A26820F376AF007DB9F4 /* MasterPageViewController.swift in Sources */,
 				CAFB050920E5109400631752 /* AppDelegate.swift in Sources */,
+				CA560FA1211B11C600156A74 /* AllResultsTableViewCell.swift in Sources */,
 				CAFB051D20E51C7200631752 /* Unit2CollectionViewController.swift in Sources */,
 				CA0BCA0F20F619C0008020BF /* ManageQuestionData.swift in Sources */,
 				CAC86B9E2100DD35007D22FF /* Formula.swift in Sources */,
@@ -366,7 +370,7 @@
 				CA7451F720E6B28800FBF600 /* AddQsViewController.swift in Sources */,
 				CA56B84E20FCCC1C00762292 /* SearchTableViewController.swift in Sources */,
 				CA4F10962108E7F3003A3EE6 /* SavesViewController.swift in Sources */,
-				CAFB051F20E51DBA00631752 /* TopicCollectionViewCell.swift in Sources */,
+				CAFB051F20E51DBA00631752 /* TopicTableViewCell.swift in Sources */,
 				CA0BCA1120F67F48008020BF /* createQuestions.swift in Sources */,
 				CAF672522113567100EAE5FF /* QuestionResultsViewController.swift in Sources */,
 			);
@@ -427,9 +431,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: sandsh@gmail.com (5KCJ598KYU)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = V2NL84RP3E;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -446,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -488,9 +493,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = V2NL84RP3E;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -501,7 +507,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

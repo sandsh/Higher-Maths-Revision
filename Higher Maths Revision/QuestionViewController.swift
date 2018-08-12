@@ -14,6 +14,7 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
     
     //Parameters passed in
     var titleName = String()
+    var testType = String()
     var questionList = [Question]()
     var pageIndex: Int = 0                   // starts at 0 ?
     var numberOfQuestions: Int!
@@ -33,6 +34,8 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var checkButtn: UIButton!
     @IBOutlet weak var finishLabel: UIButton!
+    @IBOutlet var answerButtn: UIBarButtonItem!
+    @IBOutlet var hintButtn: UIBarButtonItem!
     
     //class variables
     var chosenAnswer: Int = 0
@@ -94,11 +97,23 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
         questionText.text = String(questionList[pageIndex].qText)
         
         if numberOfQuestions == pageIndex+1 {       //if this is the last question
-            swipeLabel.text = ""                    //clear the swipe message
+            swipeLabel.text = ""  //clear the swipe message
             finishLabel.isHidden = false            //Show the finish label to get results
+            
         }else {
             finishLabel.isHidden = true             //Hide the finish label
         }
+        //if this is test question - don't allow access to answer or hint - button can't be selected or seen
+        if testType == "Test" {
+            print("this is a test - hide answer")
+            answerButtn.isEnabled = false
+            answerButtn.tintColor = UIColor.clear
+            hintButtn.isEnabled = false
+            hintButtn.tintColor = UIColor.clear
+        } else {
+            checkButtn.isHidden = false
+        }
+        
         
         if !questionList[pageIndex].imageStr.isEmpty {
             questionImage.image = Question.decodeImage(imageString: questionList[pageIndex].imageStr)
@@ -214,7 +229,6 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
                 gradeLabel.text = updateGrades(result: false)
             }
         } else {
-
             checkAnswerText()
         }
     }

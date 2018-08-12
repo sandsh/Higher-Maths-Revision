@@ -8,6 +8,4 @@ target 'Higher Maths Revision' do
   # Pods for Higher Maths Revision
     pod 'iosMath'
     
-    pod 'AppCenter'
-    pod 'AppCenter/Distribute'
 end

@@ -94,15 +94,6 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
     
     }
     
-//    func testMathQuestion () -> MTMathUILabel{
-//
-//        print ("getting maths")
-//        let label: MTMathUILabel = MTMathUILabel()
-//        label.latex = "x = \\sqrt{b^2-4ac}"
-//
-//        return label
-//    }
-    
     func getNewSetQuestions() {
         
         //get 10 generated questions - new numbers each time
@@ -112,7 +103,6 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
         var question1Label: UILabel
         let container = UIView(frame: CGRect(x: 2, y: -7, width: 200, height: 100))
 
-        
         question1Label = getQuestion1()
         question1Label.frame = container.frame
         container.addSubview(question1Label)
