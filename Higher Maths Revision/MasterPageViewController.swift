@@ -12,11 +12,8 @@ class MasterPageViewController: UIViewController, UIPageViewControllerDelegate, 
     
     //passed in variables
     var questionsList: [Question] = []      //all that particular area questions passed in
-    var titleName: String = "Practice"                  //the topic that was selected and passed in
+    var titleName: String = "Practice"      //the topic that was selected and passed in
     var testType: String!                   //Is this practice or test - hide certain buttons for test - but allow the formulae
-
-    //for page Control dots - not needed
-//    var currentIndex: Int!                     // tracks the current index
     
     var pageControl = UIPageControl()             //to display the dots with this
     var pageViewController:UIPageViewController!  //to let this know it is a pageView
@@ -29,9 +26,6 @@ class MasterPageViewController: UIViewController, UIPageViewControllerDelegate, 
     
     var resultsData = ResultsDBTable()              //set up  the results table
     var questionResults: [Results] = []             //holds the results of each question passed on
-
-//    var blankResults: [Results] = []
-//    var resultsHandler : ((String) -> ()?
     
     //Setup the page controls
     override func viewDidLoad() {
@@ -105,9 +99,9 @@ class MasterPageViewController: UIViewController, UIPageViewControllerDelegate, 
         
         pageContentVC.questionList = randomOrderQuestions
         
-        //limit it to 10 questions - could amend this to user choice later
-        if randomOrderQuestions.count > 10 {
-            pageContentVC.numberOfQuestions = 10
+        //limit it to 12 questions - could amend this to user choice later
+        if randomOrderQuestions.count > 12 {
+            pageContentVC.numberOfQuestions = 12
         } else {
             pageContentVC.numberOfQuestions = randomOrderQuestions.count
         }
@@ -154,8 +148,8 @@ class MasterPageViewController: UIViewController, UIPageViewControllerDelegate, 
             return nil
         }
         index += 1
-        //check if we haave reached end of questions - or the limit of 10
-        if (index == 10 || index == randomOrderQuestions.count){ //maximum number of questions
+        //check if we haave reached end of questions - or the limit of 12
+        if (index == 12 || index == randomOrderQuestions.count){ //maximum number of questions
             return nil
         }
         return self.questionPageAtIndex(index: index)
@@ -166,8 +160,8 @@ class MasterPageViewController: UIViewController, UIPageViewControllerDelegate, 
     func configurePageControl() {
         // The total number of pages that are available is based on how many available colors we have.
         pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 70,width: UIScreen.main.bounds.width,height: 40))
-        if randomOrderQuestions.count > 10 {
-            pageControl.numberOfPages = 10
+        if randomOrderQuestions.count > 12 {
+            pageControl.numberOfPages = 12
         } else {
             pageControl.numberOfPages = randomOrderQuestions.count    //not viewControllers.count as this only gives one dot 
         }
@@ -177,7 +171,7 @@ class MasterPageViewController: UIViewController, UIPageViewControllerDelegate, 
         pageControl.pageIndicatorTintColor = UIColor.blue
         pageControl.currentPageIndicatorTintColor = UIColor.red
         view.addSubview(pageControl)
-        view.bringSubview(toFront: pageControl)                 //need to make sure dots appeared on top of view
+        view.bringSubview(toFront: pageControl)        //need to make sure dots appeared on top of view
     }
 //
     // makes the dots colour transition with each question
@@ -199,26 +193,6 @@ class MasterPageViewController: UIViewController, UIPageViewControllerDelegate, 
         }
         return resultsAry
     }
-    
-    
-    
-    //NEXT QUESTION ??? not like this - research more
-    //trying to do the same as swiping to the next question
-//    @objc func nextQuestion(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-//        let viewController = viewController as! QuestionViewController
-//
-//        var index = viewController.pageIndex as Int
-//
-//        if  index == NSNotFound {
-//            return nil
-//        }
-//        index += 1
-//        //check if we haave reached end of questions - or the limit of 10
-//        if (index == 9 || index == randomOrderQuestions.count){ //maximum number of questions
-//            return nil
-//        }
-//        return self.questionPageAtIndex(index: index)
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

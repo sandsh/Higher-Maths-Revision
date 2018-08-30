@@ -10,10 +10,11 @@ import UIKit
 
 class SavesViewController: UIViewController {
 
+    var questionImage: UIImage!
     
     @IBOutlet weak var savedImageView: UIImageView!
     
-    var questionImage: UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

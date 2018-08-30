@@ -11,13 +11,17 @@ import UIKit
 class TopicsTableViewController: UITableViewController, UISearchBarDelegate{
 
     //MARK: properties
+    
     var QuestionList = [Question]()
     
     //create an instance of the database manager
+    let manageDB = ManageDBData()
+    
+    //outlets
     @IBOutlet var topicsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    //input name an unit passed to use when setting up view
+    //input name and unit passed to use when setting up view
     var areaName: String = ""
     var unitName: String = ""
     
@@ -29,11 +33,13 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate{
     var topicTags: [[String]] = []              //2D array with topic and tags
     var currentTopicsAll: [String] = []
     var topicName:String!
-    let manageDB = ManageDBData()
+    
     let segueIdentifier = "showQuestionsSegue"       //move to questions Screen
 
+    //get an instance of the model for handling the data
     let manageData = ManageQuestionData()
     
+    //initial display and functions to be performed only once
     override func viewDidLoad() {
         super.viewDidLoad()
         print("in topics")
@@ -97,6 +103,7 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate{
         topicCell.textLabel?.textColor = UIColor.blue
         return topicCell
     }
+    
     //this is where the properties of the section header is set
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         //changing the color of the header to light grey

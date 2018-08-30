@@ -176,16 +176,11 @@ class AddQsViewController: UIViewController, UIImagePickerControllerDelegate, UI
         var imageStrB64: String!
         //check there is an image to asign 
         if let tempImage:UIImage = questImage.image {
-            imageStrB64 = newQuestion.encodeImage(image: tempImage) 
+            imageStrB64 = Question.encodeImage(image: tempImage)
 //            if let imageData = UIImagePNGRepresentation(tempImage) {
 //                 = imageData.base64EncodedString(options: .lineLength64Characters)
 //            }
         } else {
-            //temp image for each question - no more - delete must return error
-//            let tempImage:UIImage = #imageLiteral(resourceName: "Integration1")
-//            let imageData2 = UIImagePNGRepresentation(tempImage)
-//            imageStrB64 = imageData2?.base64EncodedString(options: .lineLength64Characters)
-//
             print("the question text must eneterd")
             return
         }

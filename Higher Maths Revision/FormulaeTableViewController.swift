@@ -19,19 +19,19 @@ class FormulaeTableViewController: UITableViewController {
     @IBOutlet var formulaTableView: UITableView!
     var deleteIndexPath : IndexPath? = nil
     
-//    var sectionHeaders = ["Algebra","Trig","Circles","Straight Lines","Vectors","Calculus"]
     var currentSection: Int!
     
     //used to hold the list from the table
     var formulaList = [Formula]()
     //stores the formulae in an array of tuples - key of topic - arranged for sections of table
     var currentFormulae: [(topic:String, formula:[Formula])] = []
-    
+    //set up an instance of the formula model
     let accessFormula = FormulaDBTable()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //open the formula table
         accessFormula.openFormulaTable()
         
     }
@@ -40,6 +40,7 @@ class FormulaeTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //get the formulae grouped by topic
         currentFormulae = getTopics()
         //if we are in questions - don't allow the formulae to be altered - no add button
         if viewType == "Show" {
@@ -150,7 +151,7 @@ class FormulaeTableViewController: UITableViewController {
 //            OutMessageLabel.text = "Question \(questId) was deleted"
             formulaTableView.endUpdates()
             //now delete the question from database too
-            accessFormula.deleteQuestionOnDB(formulaID: formulaId)
+            accessFormula.deleteFormulaOnDB(formulaID: formulaId)
         }
         
     }
@@ -161,7 +162,7 @@ class FormulaeTableViewController: UITableViewController {
     }
     
     
-    //MARK: Access database
+    //MARK: Access database  - model??
     //Gather the formulae together grouping each under a topic
     func getTopics () -> [(topic:String, formula:[Formula])] {
         
@@ -257,8 +258,7 @@ extension FormulaeTableViewController {
     
     //this makes the return back to the question screen once done is selected on answer screen
     @IBAction func backToFormulaTableViewController(_ segue: UIStoryboardSegue) {
-        //no code required as nothing is passed back
-//        formulaTableView.reloadData()
+        //no code required as nothing is currently passed back
         
     }
     

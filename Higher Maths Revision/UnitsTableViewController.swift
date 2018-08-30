@@ -69,13 +69,17 @@ class UnitsTableViewController: UITableViewController {
         //if this is the first element in the section
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
-            cell.textLabel?.text = tableViewData[indexPath.section].unit
-            cell.textLabel?.textColor = UIColor.blue
-            cell.textLabel?.textAlignment = .center
             let topicCell = cell as! TopicTableViewCell
+            topicCell.textLabel?.text = tableViewData[indexPath.section].unit
+
+            topicCell.textLabel?.textColor = UIColor.blue
+            topicCell.textLabel?.textAlignment = .center
+            //hide any images that may have lingered from the previous view
+
             topicCell.topicLabel.isHidden = true
             topicCell.topicImage.isHidden = true
-            return cell
+            print("hiding image section \(tableViewData[indexPath.section].unit) \(indexPath.section) row \(indexPath.row)  ")
+            return topicCell
         } else {
           //get the correct topic depending on the section and row
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
@@ -83,10 +87,13 @@ class UnitsTableViewController: UITableViewController {
             
             let topicCell = cell as! TopicTableViewCell
             let topictext = tableViewData[indexPath.section].topicList[dataIndex]
-            topicCell.topicLabel.text = topictext
 
+            topicCell.topicLabel.text = topictext
             topicCell.textLabel?.textAlignment = .left
 //
+            topicCell.topicLabel.isHidden = false
+            topicCell.topicImage.isHidden = false
+            
             let imageview:UIImageView = UIImageView(frame: CGRect(x: 250, y: 10, width: 50, height: 30))
             imageview.clearsContextBeforeDrawing = true
             let image:UIImage = topicImages[indexPath.section][dataIndex]
@@ -123,7 +130,7 @@ class UnitsTableViewController: UITableViewController {
         U1TopicImages.append(#imageLiteral(resourceName: "sine curve"))
         U1TopicImages.append(#imageLiteral(resourceName: "functions"))
         U1TopicImages.append(#imageLiteral(resourceName: "vector"))
-        U1TopicImages.append(#imageLiteral(resourceName: "units 2"))
+        U1TopicImages.append(#imageLiteral(resourceName: "units3"))
         
         topicImages.append(U1TopicImages)
         
@@ -131,14 +138,14 @@ class UnitsTableViewController: UITableViewController {
         U2TopicImages.append(#imageLiteral(resourceName: "trig eqn"))
         U2TopicImages.append(#imageLiteral(resourceName: "differentiation"))
         U2TopicImages.append(#imageLiteral(resourceName: "integration"))
-        U2TopicImages.append(#imageLiteral(resourceName: "units 2"))
+        U2TopicImages.append(#imageLiteral(resourceName: "units3"))
         
         topicImages.append(U2TopicImages)
         U3TopicImages.append(#imageLiteral(resourceName: "straightline"))
         U3TopicImages.append(#imageLiteral(resourceName: "circles"))
         U3TopicImages.append(#imageLiteral(resourceName: "limit"))
         U3TopicImages.append(#imageLiteral(resourceName: "calculus"))
-        U3TopicImages.append(#imageLiteral(resourceName: "units 2"))
+        U3TopicImages.append(#imageLiteral(resourceName: "units3"))
         
         topicImages.append(U3TopicImages)
     }

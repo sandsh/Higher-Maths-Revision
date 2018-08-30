@@ -116,7 +116,6 @@ class ManageQuestionData {
             currentList = functionList
         case "Vectors":
             currentList = vectorList
-            print("setting vectors")
         case "Equations":
             currentList = equationList
         case "Differentiation":

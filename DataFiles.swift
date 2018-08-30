@@ -26,7 +26,7 @@ class DataFiles {
         
     }
     
-    // get the URl for the
+    // get the URl for the documents directory
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
@@ -43,10 +43,6 @@ class DataFiles {
     }
     func getImagesFromFile () -> [UIImage] {
         
-//        let directorypath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//        for fileSaved in directorypath {
-//        
-//        }
         var fileImages: [UIImage] = []
         let fileManager = FileManager.default
         let documentsURL = getDocumentsDirectory()

@@ -146,7 +146,7 @@ class FormulaDBTable {
         return formulaList
         
     }
-    func deleteQuestionOnDB (formulaID: Int) {
+    func deleteFormulaOnDB (formulaID: Int) {
         
         var dbPointer:OpaquePointer?
         

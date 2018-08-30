@@ -68,30 +68,30 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate{
     
     //MARK: Entry search bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("searchin")
-        guard !searchText.isEmpty else {            //if delete search text
-            currentTopics = tagsTopicsAll       //put all topics back
+
+        guard !searchText.isEmpty else {        //if there is a search text
+            currentTopics = tagsTopicsAll       //set all the topics found to current
             topicsTable.reloadData()            //update the view again
             return
         }
         //does the search text appear in the questions?
         //filter the topics if the text within the array is the same as that typed in
         // if true will create a new currentQuestions array
-    
+
         currentTopics = tagsTopicsAll.filter({
-            (topics: [String]) -> Bool in        //take each array to check for the searchtext
+            (topics: [String]) -> Bool in        //take each tags array from quetions to check for the searchtext
             checkForText(inWords: topics, searchText: searchText)
         }) 
         topicsTable.reloadData()
     }
 
+    //search for entered word
     func checkForText (inWords: [String], searchText: String) -> Bool {
         
         //Check all members of the array
         //The title is the first element and tags follow - if any
         for word in inWords {
             if word.lowercased().contains(searchText.lowercased()) {
-                print("found a tag same")
                 return true
             }
         }

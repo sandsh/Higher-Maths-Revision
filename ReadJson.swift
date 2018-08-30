@@ -10,23 +10,50 @@ import Foundation
 import UIKit
 
 
-class ReadJason {
+protocol HomeModelProtocol: class {
+    func itemsDownloaded(items: NSArray)
+}
+
+
+class ReadJson: NSObject, URLSessionDataDelegate {
+    weak var delegate: HomeModelProtocol!
     
+    let urlPath: String = "http://sandrahouston.uk/sands.json"
     
     let setupDB = SetUpDatabase()
+    var questionList: [Question] = []
     
-    static func data() -> [Question]{
+    func downloadItems() ->[Question] {
         
-        var questionList: [Question] = []
+        let url: URL = URL(string: urlPath)!
+        let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
+        let task = defaultSession.dataTask(with: url) { (data, response, error) in
+            
+            if error != nil {
+                print("Failed to download data")
+            }else {
+                print("Data downloaded")
+                self.questionList = self.parseJSON(jsonData: data!)
+            }
+        }
         
-        if let jsonPath: String = Bundle.main.path(forResource: "QuestionData", ofType: "json"), let jsonData: Data = NSData(contentsOfFile: jsonPath) as Data? {
+         task.resume()
+//        print("quests \(questionList[0].title)")
+        return questionList
+    }
+    
+    
+    func parseJSON(jsonData: Data!) -> [Question]{
+        
+//        var questionList: [Question] = []
+        
+//        if let jsonPath: String = Bundle.main.path(forResource: "QuestionData", ofType: "json"), let jsonData: Data = NSData(contentsOfFile: jsonPath) as Data? {
             do {
                 let json: AnyObject = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as AnyObject
                 
                 if let questionDict = json as? [String: AnyObject]{
                     
                     let question = questionDict["questionList"] as? [[String: AnyObject]]
-                    
                     print("got a dictionary")
                     for quest in question!  {
                         let title = quest["title"] as? String
@@ -42,10 +69,6 @@ class ReadJason {
                         let  tags = quest["tags"] as? [String]
                         let type = quest["type"] as? String
  //                       let solutionImage = quest["solImage"] as? String
-                        
-                        print(" out of json t qt correct  \(String(describing: title)) \(String(describing: qtext)) \(correct)")
-                        
-                        
  //                       let questionText: String
 //                        let mathText = qtext!["mathLabel"]
 //                        if mathText == "none" {
@@ -53,7 +76,6 @@ class ReadJason {
 //                        } else {
 //                            questionText = qtext!["text"]! + "{" + mathText!
 //                        }
-                        
                         var solutionStr: String = ""
 //                        if solutionImage == "none" {
                             for lines in solution! {
@@ -67,19 +89,21 @@ class ReadJason {
                         print (" tags qtype  \(tags)  \(type)  ")
                         
                         questionList.append(Question(id: 0, title: title!, imageStr:imageStr!, qText: qtext!, correctAns: correct!, answers: answers as! [String], solution: solutionStr, hint: hint!, level: level!, unit: unit!, topic: topic!, tags: tags!, qType:type!))
-                        
-                        
                     }
                 }
             } catch {
                 print("Error while deserialization of jsonData")
             }
-        }else {
-            print("error getting json")
-        }
-        
+//        }
+//        else {
+//            print("error getting json")
+//        }
+        DispatchQueue.main.async(execute: { () -> Void in
+            
+            self.delegate.itemsDownloaded(items: self.questionList as NSArray)
+            
+        })
         return questionList
     }
-    
 
 }

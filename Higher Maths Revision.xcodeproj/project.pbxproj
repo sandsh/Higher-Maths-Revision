@@ -30,8 +30,6 @@
 		CA7451F520E6788100FBF600 /* ManageDBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7451F420E6788100FBF600 /* ManageDBData.swift */; };
 		CA7451F720E6B28800FBF600 /* AddQsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7451F620E6B28800FBF600 /* AddQsViewController.swift */; };
 		CA8EDA8020FE2B35004C7023 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDA7F20FE2B35004C7023 /* AnswerViewController.swift */; };
-		CAA8A13120ECC03500F649DB /* EnterQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA8A13020ECC03500F649DB /* EnterQViewController.swift */; };
-		CAAFCA8521079F31000B1ABB /* newfile.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAFCA8421079F31000B1ABB /* newfile.m */; };
 		CAAFCA882107A763000B1ABB /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFCA872107A763000B1ABB /* DailyViewController.swift */; };
 		CAC86B9C2100CB73007D22FF /* FormulaeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC86B9B2100CB73007D22FF /* FormulaeTableViewController.swift */; };
 		CAC86B9E2100DD35007D22FF /* Formula.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC86B9D2100DD35007D22FF /* Formula.swift */; };
@@ -43,12 +41,10 @@
 		CAF672582113576D00EAE5FF /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF672572113576D00EAE5FF /* Results.swift */; };
 		CAF9E1E120E53AB400B4247D /* TopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF9E1E020E53AB400B4247D /* TopicsTableViewController.swift */; };
 		CAFB050920E5109400631752 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB050820E5109400631752 /* AppDelegate.swift */; };
-		CAFB050B20E5109400631752 /* EntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB050A20E5109400631752 /* EntryTableViewController.swift */; };
 		CAFB050E20E5109400631752 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFB050C20E5109400631752 /* Main.storyboard */; };
 		CAFB051020E5109600631752 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAFB050F20E5109600631752 /* Assets.xcassets */; };
 		CAFB051320E5109600631752 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFB051120E5109600631752 /* LaunchScreen.storyboard */; };
 		CAFB051B20E519F400631752 /* UnitsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB051A20E519F400631752 /* UnitsTableViewController.swift */; };
-		CAFB051D20E51C7200631752 /* Unit2CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB051C20E51C7200631752 /* Unit2CollectionViewController.swift */; };
 		CAFB051F20E51DBA00631752 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB051E20E51DBA00631752 /* TopicTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,8 +75,6 @@
 		CA7451F420E6788100FBF600 /* ManageDBData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageDBData.swift; sourceTree = "<group>"; };
 		CA7451F620E6B28800FBF600 /* AddQsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQsViewController.swift; sourceTree = "<group>"; };
 		CA8EDA7F20FE2B35004C7023 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
-		CAA8A13020ECC03500F649DB /* EnterQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterQViewController.swift; sourceTree = "<group>"; };
-		CAAFCA8421079F31000B1ABB /* newfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = newfile.m; sourceTree = "<group>"; };
 		CAAFCA862107A123000B1ABB /* Higher Maths Revision-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Higher Maths Revision-Bridging-Header.h"; sourceTree = "<group>"; };
 		CAAFCA872107A763000B1ABB /* DailyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewController.swift; sourceTree = "<group>"; };
 		CAC86B9B2100CB73007D22FF /* FormulaeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaeTableViewController.swift; sourceTree = "<group>"; };
@@ -94,13 +88,11 @@
 		CAF9E1E020E53AB400B4247D /* TopicsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsTableViewController.swift; sourceTree = "<group>"; };
 		CAFB050520E5109400631752 /* Higher Maths Revision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Higher Maths Revision.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFB050820E5109400631752 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CAFB050A20E5109400631752 /* EntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewController.swift; sourceTree = "<group>"; };
 		CAFB050D20E5109400631752 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CAFB050F20E5109600631752 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAFB051220E5109600631752 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAFB051420E5109600631752 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAFB051A20E519F400631752 /* UnitsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsTableViewController.swift; sourceTree = "<group>"; };
-		CAFB051C20E51C7200631752 /* Unit2CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit2CollectionViewController.swift; sourceTree = "<group>"; };
 		CAFB051E20E51DBA00631752 /* TopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,16 +119,16 @@
 		CAFB04FC20E5109400631752 = {
 			isa = PBXGroup;
 			children = (
+				CA7451F020E676F300FBF600 /* Question.swift */,
 				CAF672572113576D00EAE5FF /* Results.swift */,
+				CAC86B9D2100DD35007D22FF /* Formula.swift */,
 				CAEA50152118F05B003BFA2B /* QuestionData.json */,
 				CA3279E92117256B00BDD38D /* ResultsDBTable.swift */,
-				CAC86B9D2100DD35007D22FF /* Formula.swift */,
 				CAEA50172118F091003BFA2B /* ReadJson.swift */,
 				CA0BAF9521062BF2008CBC12 /* FormulaDBTable.swift */,
 				CA0BCA1020F67F48008020BF /* createQuestions.swift */,
 				CA0BCA0E20F619C0008020BF /* ManageQuestionData.swift */,
 				CA0BAF932105F79F008CBC12 /* DataFiles.swift */,
-				CA7451F020E676F300FBF600 /* Question.swift */,
 				CA7451F220E6776300FBF600 /* SetUpDatabase.swift */,
 				CA7451F420E6788100FBF600 /* ManageDBData.swift */,
 				CAFB050720E5109400631752 /* Higher Maths Revision */,
@@ -157,7 +149,6 @@
 		CAFB050720E5109400631752 /* Higher Maths Revision */ = {
 			isa = PBXGroup;
 			children = (
-				CAAFCA8421079F31000B1ABB /* newfile.m */,
 				CAFB050820E5109400631752 /* AppDelegate.swift */,
 				CAFB050C20E5109400631752 /* Main.storyboard */,
 				CA6B8B6F210488D600083255 /* EntryViewController.swift */,
@@ -176,19 +167,16 @@
 				CAAFCA872107A763000B1ABB /* DailyViewController.swift */,
 				CAC86B9B2100CB73007D22FF /* FormulaeTableViewController.swift */,
 				CA192E6B2100F49A004D56F5 /* FormulaTableViewCell.swift */,
+				CA0BAF9721065D5E008CBC12 /* AddFormulaViewController.swift */,
 				CA3279EB2117989600BDD38D /* ResultsViewController.swift */,
 				CA560FA0211B11C600156A74 /* AllResultsTableViewCell.swift */,
-				CA0BAF9721065D5E008CBC12 /* AddFormulaViewController.swift */,
 				CA7451F620E6B28800FBF600 /* AddQsViewController.swift */,
 				CA5F593220EA583900110593 /* ListViewController.swift */,
 				CA56B84D20FCCC1C00762292 /* SearchTableViewController.swift */,
 				CAFB050F20E5109600631752 /* Assets.xcassets */,
 				CAFB051120E5109600631752 /* LaunchScreen.storyboard */,
-				CAFB051C20E51C7200631752 /* Unit2CollectionViewController.swift */,
 				CAFB051420E5109600631752 /* Info.plist */,
 				CAAFCA862107A123000B1ABB /* Higher Maths Revision-Bridging-Header.h */,
-				CAFB050A20E5109400631752 /* EntryTableViewController.swift */,
-				CAA8A13020ECC03500F649DB /* EnterQViewController.swift */,
 			);
 			path = "Higher Maths Revision";
 			sourceTree = "<group>";
@@ -339,23 +327,19 @@
 				CA3279EA2117256B00BDD38D /* ResultsDBTable.swift in Sources */,
 				CAFB051B20E519F400631752 /* UnitsTableViewController.swift in Sources */,
 				CA7451F520E6788100FBF600 /* ManageDBData.swift in Sources */,
-				CAAFCA8521079F31000B1ABB /* newfile.m in Sources */,
 				CA192E6C2100F49A004D56F5 /* FormulaTableViewCell.swift in Sources */,
 				CA4F1094210876A7003A3EE6 /* SavesTableViewController.swift in Sources */,
 				CA0BAF9821065D5E008CBC12 /* AddFormulaViewController.swift in Sources */,
 				CAD5CF4320EAA5E4001732AF /* QuestionViewController.swift in Sources */,
-				CAFB050B20E5109400631752 /* EntryTableViewController.swift in Sources */,
 				CAF4A26820F376AF007DB9F4 /* MasterPageViewController.swift in Sources */,
 				CAFB050920E5109400631752 /* AppDelegate.swift in Sources */,
 				CA560FA1211B11C600156A74 /* AllResultsTableViewCell.swift in Sources */,
-				CAFB051D20E51C7200631752 /* Unit2CollectionViewController.swift in Sources */,
 				CA0BCA0F20F619C0008020BF /* ManageQuestionData.swift in Sources */,
 				CAC86B9E2100DD35007D22FF /* Formula.swift in Sources */,
 				CA5F593320EA583900110593 /* ListViewController.swift in Sources */,
 				CA7451F320E6776300FBF600 /* SetUpDatabase.swift in Sources */,
 				CA2BD3D4211445380054A8FC /* QuestionResultsCollectionViewCell.swift in Sources */,
 				CA0BAF942105F79F008CBC12 /* DataFiles.swift in Sources */,
-				CAA8A13120ECC03500F649DB /* EnterQViewController.swift in Sources */,
 				CAF9E1E120E53AB400B4247D /* TopicsTableViewController.swift in Sources */,
 				CAF672582113576D00EAE5FF /* Results.swift in Sources */,
 				CA8EDA8020FE2B35004C7023 /* AnswerViewController.swift in Sources */,
@@ -431,7 +415,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: sandsh@gmail.com (5KCJ598KYU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = V2NL84RP3E;
@@ -493,7 +478,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = V2NL84RP3E;

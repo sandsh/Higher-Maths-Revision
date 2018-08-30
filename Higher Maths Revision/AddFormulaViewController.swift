@@ -65,7 +65,6 @@ class AddFormulaViewController: UIViewController, UIImagePickerControllerDelegat
         
         if let jpegData = UIImageJPEGRepresentation(imagePicked, 80) {
             //store the image
-            print("jpeg good - now to write")
             try? jpegData.write(to: imagePath)
             
             //display the image
@@ -93,7 +92,7 @@ class AddFormulaViewController: UIViewController, UIImagePickerControllerDelegat
         var imageStrB64: String!
         //check there is an image to asign
         if let newFormulaImg:UIImage = formulaImage.image {
-            imageStrB64 = question.encodeImage(image: newFormulaImg)
+            imageStrB64 = Question.encodeImage(image: newFormulaImg)
         }
         
         let newUnit = Int(inUnit)

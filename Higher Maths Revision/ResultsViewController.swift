@@ -113,11 +113,11 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     func handleDeleteQuestion(alertAction: UIAlertAction!) -> Void {
         if let indexPath = delQuestionIndexPath {
             resultsTableView.beginUpdates()
-            //get the ID of the current question so it can be passed on to be deleted from Database
+            //get the title of the current results so it can be passed on to be deleted from Database
             let testTitle = testResults[indexPath.row].testTitle
             testResults.remove(at: indexPath.row)
             
-            // Note that indexPath is wrapped in an array:  [indexPath]
+            //delete the row from the table view
             resultsTableView.deleteRows(at: [indexPath], with: .automatic)
             
             delQuestionIndexPath = nil
@@ -136,14 +136,15 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     func gatherResults() {
         
         var testResultTitles: [String] = []
-//        var currentTitle: String = ""
+
         var oneResult: (testTitle: String, percentScore: Int, numCorrect: Int, numQuestions: Int )
+        //get a copy of results used to scan over to find same tests
         let copyResults = allResults
+        //hold the current position from the copy
         for result in copyResults {
             var totalScore: Int = 0
             var numQuests: Int = 0
             var correct: Int = 0
-//            currentTitle = result.testTitle
             
             //if we have't found this test title before
             if !testResultTitles.contains(result.testTitle) {
@@ -159,7 +160,6 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
                         }
                         numQuests = numQuests + 1
                     }
-                    
                 }
                 print("after looping in all \(correct)")
                 oneResult.testTitle = result.testTitle

@@ -24,7 +24,7 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
     @IBOutlet weak var q2Text: UILabel!
     @IBOutlet weak var q2View: UIView!
     @IBOutlet weak var q2Answer: UITextField!
-    
+    @IBOutlet weak var q2QuestionView: UIView!
     
     @IBOutlet weak var q3View: UIView!
     @IBOutlet weak var q3Text: UILabel!
@@ -36,19 +36,6 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //create a container to hold the math equation - position 5 from right in the view
-        
-//
-//        let container1 = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 70))
-//        let label: MTMathUILabel = MTMathUILabel()
-//        label.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
-//
-//        label.frame = container1.frame
-//        container1.addSubview(label)
-//        q1View.addSubview(container1)
-        
-        
-        print ("daily num of quests \(questionList.count)")
         
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -64,11 +51,6 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
         view.endEditing(true)
     }
     
-//    //MARK: ADDING Image from phone
-//    @objc func addNewQuestions(){
-//
-//    }
-    
     @IBAction func newTestButton(_ sender: UIButton) {
         
         //clear contents of the views -  if there's anything in them
@@ -82,6 +64,7 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
             subview.removeFromSuperview()
         }
         myLabel.text = "Answer the following"
+        //wipe the answer fields
         q1Answer.text = " "
         q2Answer.text = " "
         q3Answer.text = " "
@@ -89,8 +72,6 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
         questionList.removeAll()
         answers.removeAll()
         getNewSetQuestions()
-
-        print ("new test num of quests \(questionList.count)")
     
     }
     
@@ -101,7 +82,7 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
         //Q1 - Factorise
         
         var question1Label: UILabel
-        let container = UIView(frame: CGRect(x: 2, y: -7, width: 200, height: 100))
+        let container = UIView(frame: CGRect(x: 2, y: -10, width: 200, height: 100))
 
         question1Label = getQuestion1()
         question1Label.frame = container.frame
@@ -112,7 +93,7 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
         
         var mathTemplateQuestion1 = (questionData: Question(), questionLabel: MTMathUILabel())
         
-        let container2 = UIView(frame: CGRect(x: 2, y: -5, width: 250, height: 80))
+        let container2 = UIView(frame: CGRect(x: 2, y: -7, width: 250, height: 80))
         container2.clearsContextBeforeDrawing = true
         mathTemplateQuestion1 = newQuestion.createCompleteSquare()
         //add question to a list
@@ -124,7 +105,14 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
         question2Label.frame = container2.frame
         container2.addSubview(question2Label)
         q2View.addSubview(container2)
-        q2Text.text = "Find a,b,c when in form a(x+b)^2 + c "
+        
+        q2Text.text = "Find the values of a,b,c when written as"
+        let q2MathLabel: MTMathUILabel = MTMathUILabel()
+        let containerQuest2 = UIView(frame: CGRect(x: 0, y: -8, width: 250, height: 50))
+        q2MathLabel.latex = " a(x + b)^2 + c"
+        q2MathLabel.frame = containerQuest2.frame
+        containerQuest2.addSubview(q2MathLabel)
+        q2QuestionView.addSubview(containerQuest2)
         
         //Q3 - Magnitude of Vector
         var mathTemplateVQuestion2 = (questionVData: Question(), questionVLabel: MTMathUILabel())
@@ -164,6 +152,11 @@ class DailyViewController: UIViewController, UITextViewDelegate, UIToolbarDelega
  
     @IBAction func showAnswers(_ sender: UIButton) {
         
+        //dont allow any editing in the answer
+        q1Answer.isHidden = false
+        q2Answer.isHidden = false
+        q3Answer.isHidden = false
+
         print ("before first answer \(questionList[0].title)")
         q1Answer.text = answers[0]
         print ("before second answer \(questionList[1].title) ")

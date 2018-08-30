@@ -14,7 +14,7 @@ class TestsTableViewController: UITableViewController {
     
     
     //class variables
-    var testsList = ["All Units","Exam Questions", "Unit 1","Unit 2","Unit 3"]
+    var testsList = ["All Units","Unit 1","Unit 2","Unit 3"]
     var segueIdentifier = "showTestQuestionsSegue"
     var allQuestionsList = [Question]()
     var currentList = [Question]()
@@ -75,8 +75,8 @@ class TestsTableViewController: UITableViewController {
         print ("current number \(String(currentList.count))")
         //pass data over to view controllers depending on where it has come from
         let destination = (segue.destination as? MasterPageViewController)!
-        //send the title of what was chosen
-        destination.titleName  = testsList[unitIndex!]
+        //send the title of what was chosen with the word test added to the title
+        destination.titleName  = testsList[unitIndex!] + " Test"
         //set for what buttons displayed in the questions
         // this is a test - set up questions as appropriate
         destination.testType = "Test"

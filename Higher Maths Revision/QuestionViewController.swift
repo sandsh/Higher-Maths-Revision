@@ -48,8 +48,6 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
     var question = Question()
     var newResult = Results()
     
-//    var masterPageViewC: MasterPageViewController!
-    //closure to pass results
     
    var resultsH: resultsHandler?
     
@@ -110,6 +108,9 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
             answerButtn.tintColor = UIColor.clear
             hintButtn.isEnabled = false
             hintButtn.tintColor = UIColor.clear
+            checkButtn.setTitle("Submit", for: .normal)
+            //hide the results - find out at the end
+            resultLabel.isHidden = true
         } else {
             checkButtn.isHidden = false
         }
@@ -231,6 +232,14 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
         } else {
             checkAnswerText()
         }
+        //don't show the answer
+        if testType == "Test" {
+            resultLabel.isHidden = false
+            resultLabel.textColor = UIColor.blue
+            resultLabel.text = "Answer submitted"
+            checkButtn.isHidden = true
+            gradeLabel.isHidden = true
+        }
     }
     
     func checkAnswerText() {
@@ -308,23 +317,22 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
             }
         }
         
-        //now update results with values- index one less than page and question number
+        //now update results with values - index one less than page and question number
         newResult.testTitle = titleName
-        print("number attempts \(numberAttempts)")
+
         newResult.attempts = numberAttempts
-        print("grade got \(grade)")
+
         newResult.score = grade
- 
         
         //send the newresult to the master to update the array of results for second time
-        //master sends the full array updated back - i hope
+        //master sends the full array updated back
         questionResults = resultsH!(newResult)
         
         
         return resultText
         
     }
-    
+    // a one line hint is given for each question
     @IBAction func hintButton(_ sender: UIBarButtonItem) {
         resultLabel.textColor = UIColor.blue
         resultLabel.text = questionList[pageIndex].hint
@@ -350,8 +358,8 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
         }
     }
     
-    //ACTION Show - Move to new screens upon these actions
-    
+    //ACTIONS
+    //Move to new screens upon these actions being selected
     
     @IBAction func showAnswerButton(_ sender: UIBarButtonItem) {
         
@@ -359,8 +367,7 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
     }
     
     @IBAction func finishButton(_ sender: UIButton) {
-        
-        
+
         performSegue(withIdentifier: "showQResultsSegue", sender: self)
     }
     
@@ -388,7 +395,7 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UIPageViewC
             view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         }
         //create a unique name to save it as - title and id
-        let savedAs = questionList[pageIndex].title + String(questionList[pageIndex].id)
+        let savedAs = questionList[pageIndex].title + "-" + String(questionList[pageIndex].id)
         let dataFiles = DataFiles()
         dataFiles.saveImagetoFile(image: screenImage, saveName: savedAs)
         resultLabel.text  = "An image of this question was saved to files"

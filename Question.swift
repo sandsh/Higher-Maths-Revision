@@ -52,7 +52,7 @@ class Question {
         let decodedimage:UIImage = UIImage(data: decodedData!)!
         return decodedimage
     }
-    func encodeImage(image: UIImage) -> String {
+    static func encodeImage(image: UIImage) -> String {
         let imageData2 = UIImagePNGRepresentation(image)
         let imageStrB64 = imageData2?.base64EncodedString(options: .lineLength64Characters)
         return imageStrB64!

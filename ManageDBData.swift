@@ -35,13 +35,7 @@ class ManageDBData {
         if dbPointer == nil {
             return questionList
         }
-//
-//        if sqlite3_open(FileURL.path, &dbPointer) != SQLITE_OK {
-//            print("error opening database")
-//  //          return
-//   ***     // return nothing causes error - need to check this if not returning empty questionlist
-//        }
-        print("get daa - before sql in" )
+
         //set up query to get everything from database
         let queryString2 = "SELECT * FROM \(tableName)"
         var stmPointer: OpaquePointer?
@@ -165,7 +159,7 @@ class ManageDBData {
         var newAry:  [String] = ["a", "b", "c", "d"]
         var randNum: Int
         
-        var seq: [Int] = []      //EMPTY! hah ? initialised to number outwith range - max 4(or 5) anwsers
+        var seq: [Int] = []      //EMPTY array - how to do it for intialisation
        //take each part of the split up string
         if answerAry.count == 5{
             answerAry.remove(at: 0)
@@ -185,7 +179,7 @@ class ManageDBData {
         }
         return newAry
     }
-//  delete versions of table - to be done **
+//  delete older versions of table - to be done in future versions when updates performed**
 //    func DropTable() {
 //
 //        var db:OpaquePointer?
@@ -196,7 +190,7 @@ class ManageDBData {
 //            // return nothing causes error - need to check this if not returning
 //        }
 //        // what table to drop and recreate
-//        db.drop(table: "questionsTable2", ifExists: true) ?? not working
+//        db.drop(table: "questionsTable2", ifExists: true)
 //    }
 }
     

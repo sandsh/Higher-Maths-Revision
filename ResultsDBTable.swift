@@ -157,10 +157,11 @@ class ResultsDBTable {
         //close the table - keep it from leaking (but does finalisze do that?)
         //but all statemnets must be finished before closing ??
         //this could cause problems
-        //        if sqlite3_close(dbPointer) != SQLITE_OK {
-        //            print("error closing database")
-        //        }
+                if sqlite3_close(dbPointer) != SQLITE_OK {
+                    print("error closing database")
+                }
         //should we close table here?
+        // i think we should - try it
         return resultList
         
     }
@@ -172,27 +173,37 @@ class ResultsDBTable {
         
         if sqlite3_open(fileURL.path, &dbPointer) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(dbPointer)!)
-            print("error opening database")
+            print("error opening database \(errmsg)")
             //          return
             // return nothing causes error - need to check this if not returning
         }
+        //set up query to get all those from table that has to be deleted
+        let queryString = "SELECT * FROM \(tableName) WHERE test = \(testTitle)"
+        var stmPointer: OpaquePointer?
         
-        var deleteSmt: OpaquePointer? = nil
-        
-        let deleteStr = "DELETE FROM \(tableName) WHERE test = \(testTitle)"
-        
-        if sqlite3_prepare(dbPointer, deleteStr, -1, &deleteSmt, nil) == SQLITE_OK {
-            if sqlite3_step(deleteSmt) == SQLITE_DONE {
-                print("Successfully deleted row.")
-            } else {
-                let errmsg = String(cString: sqlite3_errmsg(dbPointer)!)
-                print("Could not delete row.")
-            }
-        } else {
+        //prepare the query to select all those with that testTitle
+        if sqlite3_prepare(dbPointer, queryString, -1, &stmPointer, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(dbPointer)!)
-            print("DELETE statement could not be prepared ")
+            print("error preparing Select: \(errmsg)")
         }
         
+        var deleteSmt: OpaquePointer? = nil
+         while(sqlite3_step(stmPointer) == SQLITE_ROW){
+            let FormulaId = sqlite3_column_int(stmPointer, 0)
+            let deleteStr = "DELETE FROM \(tableName) WHERE id = \(FormulaId)"
+        
+            if sqlite3_prepare(dbPointer, deleteStr, -1, &deleteSmt, nil) == SQLITE_OK {
+                if sqlite3_step(deleteSmt) == SQLITE_DONE {
+                    print("Successfully deleted row.")
+                } else {
+                    let errmsg = String(cString: sqlite3_errmsg(dbPointer)!)
+                    print("Could not delete row. \(errmsg)")
+                }
+            } else {
+                let errmsg = String(cString: sqlite3_errmsg(dbPointer)!)
+                print("DELETE statement could not be prepared  \(errmsg)")
+            }
+        }
         if sqlite3_finalize(deleteSmt) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(dbPointer)!)
             print("error finalizing prepared statement: \(errmsg)")

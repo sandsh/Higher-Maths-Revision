@@ -25,7 +25,7 @@ class QuestionResultsViewController: UIViewController, UICollectionViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        self.title = questsResults[0].testTitle
         //calculate some numbers and update
         displayResults()
         
@@ -65,25 +65,25 @@ class QuestionResultsViewController: UIViewController, UICollectionViewDelegate,
     
         //set the question number as 1 more than page index - as index starts at 0
         resultCell.questionNum.text = String(indexPath.row + 1)
-        print("score is  \(questsResults[indexPath.row].score)" )
+
         let attempts = questsResults[indexPath.row].attempts
         if questsResults[indexPath.row].score > 49  {
             resultCell.gradeImageBtn.setTitle("✵", for: .normal)
-            resultCell.gradeImageBtn.setTitleColor(UIColor.green, for: .normal)
+            resultCell.gradeImageBtn.setTitleColor(UIColor.yellow, for: .normal)
             resultCell.layer.borderWidth = 0.8
-            resultCell.layer.borderColor = UIColor.green.cgColor
+            resultCell.layer.borderColor = UIColor.yellow.cgColor
             resultCell.questionScore.text = String(questsResults[indexPath.row].score)
         } else if attempts > 0 {
-            resultCell.gradeImageBtn.setTitle("💥", for: .normal)
+            resultCell.gradeImageBtn.setTitle("☓", for: .normal)
             resultCell.gradeImageBtn.setTitleColor(UIColor.purple, for: .normal)
             resultCell.layer.borderWidth = 0.8
             resultCell.layer.borderColor = UIColor.purple.cgColor
             resultCell.questionScore.text = String(questsResults[indexPath.row].score)
         } else  {
-            resultCell.gradeImageBtn.setTitle("❓", for: .normal)
-            resultCell.gradeImageBtn.setTitleColor(UIColor.yellow, for: .normal)
+            resultCell.gradeImageBtn.setTitle("◉", for: .normal)
+            resultCell.gradeImageBtn.setTitleColor(UIColor.blue, for: .normal)
             resultCell.layer.borderWidth = 0.8
-            resultCell.layer.borderColor = UIColor.yellow.cgColor
+            resultCell.layer.borderColor = UIColor.blue.cgColor
             resultCell.questionScore.text = String(questsResults[indexPath.row].score)
         }
         
@@ -94,21 +94,34 @@ class QuestionResultsViewController: UIViewController, UICollectionViewDelegate,
         
         testTitle.text = questsResults[0].testTitle
         let testAverage = calculateTotalScore()
-        
+        var numNoAttempts: Int = 0
         var correctAns: Int = 0
         for questions in questsResults {
             if questions.score > 50 {
                 correctAns = correctAns + 1
+            } else if questions.attempts == 0 {
+                numNoAttempts = numNoAttempts + 1
             }
         }
-        testGradeLabel.text = "Total score of " + String(testAverage) + "%" + " with " + String(correctAns) + " out of \(questsResults.count) correct"
+        var feedback: String = " "
+        switch testAverage {
+        case 80..<100:
+            feedback = "Well done. Great score."
+        case 50..<80:
+            feedback = "Good still room for improvement."
+        case 0..<50:
+            feedback = "You need more practice on this. Try again."
+        default:
+            break
+        }
+        
+        
+        testGradeLabel.text = "Total score of " + String(testAverage) + "%" + " with " + String(correctAns) + " out of \(questsResults.count) correct.   \(numNoAttempts) questions not attempted.  \(feedback)"
         
     }
     
     
     //MARK: Total Score
-    
-    
     func calculateTotalScore() -> Int{
         
         var totalScore: Int = 0

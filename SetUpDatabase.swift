@@ -27,7 +27,7 @@ class SetUpDatabase {
         print("creating table in call openOr")
         
         //Create the table if it doesn't exist
-        if sqlite3_exec(dbPointer, "CREATE TABLE IF NOT EXISTS \(tableName) (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, qText TEXT, imageStr TEXT, correctAnswer TEXT, wrongAnswers TEXT, solution TEXT, hint TEXT, level TEXT, unit TEXT, topic TEXT, tags TEXT, qType TEXT )", nil, nil, nil) != SQLITE_OK {
+        if sqlite3_exec(dbPointer, "CREATE TABLE IF NOT EXISTS \(tableName) (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, qText TEXT, imageStr TEXT, correctAnswer TEXT, wrongAnswers TEXT, solution TEXT, hint TEXT, level TEXT, unit Text, topic TEXT, tags TEXT, qType TEXT )", nil, nil, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(dbPointer)!)
             print("error creating table \(errmsg)")
         } else {print("table created")}

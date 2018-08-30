@@ -99,19 +99,6 @@ class CreateQuestion {
         dVar = bigRandomNums[3]
         print("rnd vars \(String(aVar)) \(String(bVar)) \(String(cVar)) \(String(dVar))  ")
        
-//        var aVarStr: String
-//        var cVarStr: String
-//        if aVar == 1 {
-//            aVarStr = ""
-//        } else {
-//            aVarStr = String(aVar)
-//        }
-//
-//        if cVar == 1 {
-//            cVarStr = ""
-//        } else {
-//            cVarStr = String(aVar)
-//        }
         
         var sqrLocn: Int = 2 + 4        // one digit and x before the squared superscript is default
         
@@ -217,9 +204,9 @@ class CreateQuestion {
         
         let mylabel = UILabel()
         let largeFont = UIFont(name: "Damascus", size:60)
-        let superFont = UIFont(name: "Damascus", size:30)
+        let superFont = UIFont(name: "Damascus", size:20)
         let displayString = NSMutableAttributedString(string: "\(questionString)", attributes: [.font: largeFont as Any])
-        displayString.setAttributes([.font:superFont as Any,.baselineOffset:15], range: NSRange(location:powLocn,length:1))
+        displayString.setAttributes([.font: superFont as Any, .baselineOffset:15], range: NSRange(location:powLocn,length:1))
         
         mylabel.attributedText = displayString
         //convert label to image - or return it
@@ -227,13 +214,6 @@ class CreateQuestion {
         return mylabel
         }
     
-//    func testMathQuestion () -> MTMathUILabel{
-//
-//        let label: MTMathUILabel = MTMathUILabel()
-//        label.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
-//
-//        return label
-//    }
     
     func createCompleteSquare () -> (Question, MTMathUILabel) {
         
@@ -245,12 +225,10 @@ class CreateQuestion {
         let varB = randomNums[1]
         let varC = randomNums[2]
         
-//        let sqrLabel: MTMathUILabel = MTMathUILabel()
-//        sqrLabel.latex = "a(x + b)^2 + c"
-        //set up answer before variables change
-        var answerStr = "a = \(varA) b= \(varB) c = \(varC)"
+        //set up answer before any variables change
+        let answerStr = "a = \(varA) b= \(varB) c = \(varC)"
         var xCoeff = 2*varB*varA
-        var numTerm = varB*varB + varC
+        var numTerm = varC - varA*varB*varB 
         //check the value of the variables for negatives - change displayed sign
         var firstSign, secondSign : String
         if xCoeff < 0 {
@@ -279,15 +257,9 @@ class CreateQuestion {
             varAStr = String(varA)
         }
         let questLabel: MTMathUILabel = MTMathUILabel()
-//        if varB == 1 {
-//            varBStr = ""
-//        } else {
-//            varBStr = String(cVar)
-//        }
     
         questLabel.latex = "\(varAStr)x^2 \(firstSign) \(xCoeff)x \(secondSign) \(numTerm)"
-        //in \\ the\\ form\\ a(x + b)^2 + c "
-        print("cs \(questLabel.latex)")
+
         questLabel.fontSize = 28
         
         var mathTemplateQuestion = (questionData: Question(), questionLabel: MTMathUILabel())
@@ -388,22 +360,6 @@ class CreateQuestion {
     }
     
 }
-//  using CoreGraphics
-//    extension UIImage {
-//
-//        class func imageWithLabel(label: UILabel) -> UIImage {
-//            let imageView:UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 160, height: 130))
-//            imageView.image = UIImage(named:"quadratic")
-//            imageView.addSubview(label.attributedText)
-//
-//            UIGraphicsBeginImageContextWithOptions(label.bounds.size, false, 0.0)
-//            defer {UIGraphicsEndImageContext()}
-//            label.layer.render(in: UIGraphicsGetCurrentContext()!)
-//            let img = UIGraphicsGetImageFromCurrentImageContext()
-//            UIGraphicsEndImageContext()
-//            return img!
-//        }
-//    }
 
     
     
